@@ -1,10 +1,16 @@
 import express from 'express';
 import dotenv from 'dotenv';
 import cors from 'cors';
+import path from 'path';
+import { fileURLToPath } from 'url';
 import connectDB from './config/db.js';
 import authRoutes from './routes/auth.js';
 import interviewRoutes from './routes/interview.js';
 import resumeRoutes from './routes/resume.js';
+
+// Get __dirname equivalent for ES Modules
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 
 // Load environment variables
 dotenv.config();
@@ -27,6 +33,15 @@ app.use('/api/resume', resumeRoutes);
 app.get('/health', (req, res) => {
   res.json({ status: 'ok', message: 'AI Mock Interviewer Backend is running.' });
 });
+
+// Serve Frontend Static Assets in Production
+if (process.env.NODE_ENV === 'production') {
+  app.use(express.static(path.join(__dirname, '../frontend/dist')));
+
+  app.get('*', (req, res) => {
+    res.sendFile(path.resolve(__dirname, '../frontend', 'dist', 'index.html'));
+  });
+}
 
 // Global Error Handler
 app.use((err, req, res, next) => {
