@@ -5,7 +5,8 @@ import API from '../api/api.js';
 import { 
   Play, Calendar, Award, ChevronRight, LogOut, Code, UserCheck, Plus, Sparkles, 
   UploadCloud, FileText, BarChart3, TrendingUp, HelpCircle, User, FolderClosed, 
-  ArrowLeft, Check, RotateCcw, AlertTriangle, Building, Terminal, ChevronDown, ChevronUp, BookOpen 
+  ArrowLeft, Check, RotateCcw, AlertTriangle, Building, Terminal, ChevronDown, ChevronUp, BookOpen,
+  Users, ShieldAlert, RefreshCw, Mail
 } from 'lucide-react';
 import { ResponsiveContainer, LineChart, Line, BarChart as ReBarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip } from 'recharts';
 import ThemeToggle from '../components/ThemeToggle.jsx';
@@ -481,6 +482,31 @@ const Dashboard = ({ onStartSession, onViewReport, onLogout }) => {
   // Navigation states
   const [activeModule, setActiveModule] = useState('hub');
 
+  // Admin Panel States
+  const [adminUsers, setAdminUsers] = useState([]);
+  const [loadingAdminUsers, setLoadingAdminUsers] = useState(false);
+  const [adminError, setAdminError] = useState('');
+
+  const fetchAdminUsers = async () => {
+    setLoadingAdminUsers(true);
+    setAdminError('');
+    try {
+      const { data } = await API.get('/auth/users');
+      setAdminUsers(data);
+    } catch (err) {
+      console.error('Error fetching admin users:', err);
+      setAdminError(err.response?.data?.message || 'Failed to load users list.');
+    } finally {
+      setLoadingAdminUsers(false);
+    }
+  };
+
+  useEffect(() => {
+    if (activeModule === 'admin-panel' && user?.role === 'admin') {
+      fetchAdminUsers();
+    }
+  }, [activeModule, user]);
+
   // Form Fields (AI Interview Setup)
   const [formData, setFormData] = useState({
     jobProfile: 'MERN Stack Developer',
@@ -940,6 +966,31 @@ const Dashboard = ({ onStartSession, onViewReport, onLogout }) => {
                   </div>
                 </div>
               </div>
+
+              {/* Box 6: Developer Admin Panel */}
+              {user?.role === 'admin' && (
+                <div className="animate-slide-up delay-[700ms]">
+                  <div 
+                    onClick={() => setActiveModule('admin-panel')}
+                    className="group relative p-6 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-855 rounded-3xl hover:border-violet-500 dark:hover:border-violet-550 cursor-pointer shadow-sm hover:shadow-violet-500/10 dark:hover:shadow-violet-500/5 hover:bg-gradient-to-br hover:from-white hover:to-violet-50/5 dark:hover:from-slate-900 dark:hover:to-violet-955/10 card-bounce-transition transform hover:-translate-y-3 flex flex-col justify-between min-h-[220px] h-full"
+                  >
+                    <div className="space-y-3 text-left">
+                      <div className="p-3 bg-violet-500/10 text-violet-500 rounded-2xl w-fit group-hover:scale-110 group-hover:rotate-6 transition-all duration-300">
+                        <Terminal className="w-7 h-7" />
+                      </div>
+                      <h3 className="text-lg font-bold text-slate-900 dark:text-white group-hover:text-violet-600 dark:group-hover:text-violet-400 transition-colors">
+                        Developer Admin Panel
+                      </h3>
+                      <p className="text-xs text-slate-500 dark:text-slate-400 leading-relaxed">
+                        View registered users, track their sign-up dates, see how many mock interviews they have started, and manage user access.
+                      </p>
+                    </div>
+                    <div className="mt-4 flex items-center text-xs font-bold text-violet-600 dark:text-violet-400">
+                      Manage Users <ChevronRight className="w-4 h-4 ml-1 group-hover:translate-x-1 transition-transform" />
+                    </div>
+                  </div>
+                </div>
+              )}
 
             </div>
           </div>
@@ -1752,7 +1803,6 @@ const Dashboard = ({ onStartSession, onViewReport, onLogout }) => {
             )}
           </div>
         )}
-
         {/* Module 6: Recorded Interviews Vault */}
         {activeModule === 'recorded-vault' && (
           <div className="lg:col-span-3 space-y-6">
@@ -1843,7 +1893,7 @@ const Dashboard = ({ onStartSession, onViewReport, onLogout }) => {
                         <div
                           key={sess._id}
                           onClick={() => onViewReport(sess._id)}
-                          className="p-4 bg-slate-50/50 dark:bg-slate-950/40 border border-slate-200 dark:border-slate-800 hover:border-indigo-500 dark:hover:border-indigo-500/50 rounded-2xl cursor-pointer hover:bg-white dark:hover:bg-slate-950 transition-all flex items-center justify-between group active:scale-98 shadow-sm"
+                          className="p-4 bg-slate-50/50 dark:bg-slate-955/40 border border-slate-200 dark:border-slate-800 hover:border-indigo-500 dark:hover:border-indigo-500/50 rounded-2xl cursor-pointer hover:bg-white dark:hover:bg-slate-950 transition-all flex items-center justify-between group active:scale-98 shadow-sm"
                         >
                           <div className="space-y-1 text-left">
                             <div className="flex items-center gap-2">
@@ -1882,6 +1932,121 @@ const Dashboard = ({ onStartSession, onViewReport, onLogout }) => {
                   </div>
                 </div>
               </div>
+            </div>
+          </div>
+        )}
+
+        {/* Module 7: Developer Admin Panel */}
+        {activeModule === 'admin-panel' && user?.role === 'admin' && (
+          <div className="lg:col-span-3 space-y-6">
+            <div className="flex items-center gap-2">
+              <button 
+                onClick={() => setActiveModule('hub')}
+                className="flex items-center gap-2 px-3 py-1.5 bg-slate-100 hover:bg-slate-200 dark:bg-slate-900 dark:hover:bg-slate-800 border border-slate-200 dark:border-slate-800 rounded-xl text-xs font-bold text-slate-600 dark:text-slate-400 transition-all"
+              >
+                <ArrowLeft className="w-4 h-4" /> Back to Workspace
+              </button>
+              <span className="text-xs font-bold text-slate-400">Workspace / Admin Panel</span>
+            </div>
+
+            <div className="p-6 md:p-8 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-855 rounded-3xl shadow-sm space-y-6 text-left animate-fade-in">
+              <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 pb-4 border-b border-slate-100 dark:border-slate-850">
+                <div>
+                  <h2 className="text-2xl font-bold text-slate-900 dark:text-white flex items-center gap-2">
+                    <ShieldAlert className="w-6 h-6 text-violet-500" /> Developer Admin Panel
+                  </h2>
+                  <p className="text-xs sm:text-sm text-slate-505 dark:text-slate-400">
+                    Monitor user registrations, activity volumes, and overall mock interview metrics.
+                  </p>
+                </div>
+                <button
+                  onClick={fetchAdminUsers}
+                  disabled={loadingAdminUsers}
+                  className="flex items-center gap-1.5 px-3 py-1.5 bg-violet-600 hover:bg-violet-500 disabled:opacity-50 text-white rounded-xl text-xs font-bold transition-all active:scale-95 shadow-sm"
+                >
+                  <RefreshCw className={`w-3.5 h-3.5 ${loadingAdminUsers ? 'animate-spin' : ''}`} />
+                  {loadingAdminUsers ? 'Syncing...' : 'Refresh List'}
+                </button>
+              </div>
+
+              {adminError && (
+                <div className="p-4 bg-red-500/10 border border-red-500/20 text-red-500 rounded-2xl text-xs flex items-center gap-2">
+                  <AlertTriangle className="w-4 h-4" />
+                  {adminError}
+                </div>
+              )}
+
+              {loadingAdminUsers ? (
+                <div className="flex flex-col items-center justify-center py-20 gap-3">
+                  <div className="w-8 h-8 border-4 border-violet-500 border-t-transparent rounded-full animate-spin"></div>
+                  <span className="text-xs text-slate-400 font-medium animate-pulse">Fetching developer dashboard metrics...</span>
+                </div>
+              ) : adminUsers.length === 0 ? (
+                <div className="text-center py-16 border border-dashed border-slate-200 dark:border-slate-850 rounded-2xl flex flex-col items-center justify-center gap-2">
+                  <Users className="w-10 h-10 text-slate-450 dark:text-slate-700" />
+                  <span className="text-xs text-slate-500">No users found in the system yet.</span>
+                </div>
+              ) : (
+                <div className="overflow-x-auto rounded-2xl border border-slate-200 dark:border-slate-850 shadow-sm">
+                  <table className="w-full text-left border-collapse text-xs sm:text-sm">
+                    <thead>
+                      <tr className="bg-slate-50 dark:bg-slate-950 text-slate-550 dark:text-slate-400 font-bold border-b border-slate-205 dark:border-slate-850">
+                        <th className="p-4">Candidate Profile</th>
+                        <th className="p-4">Contact Info</th>
+                        <th className="p-4">Role Status</th>
+                        <th className="p-4">Session Statistics</th>
+                        <th className="p-4">Registered Date</th>
+                      </tr>
+                    </thead>
+                    <tbody className="divide-y divide-slate-100 dark:divide-slate-850 bg-white dark:bg-slate-900">
+                      {adminUsers.map((u) => (
+                        <tr 
+                          key={u._id} 
+                          className="hover:bg-slate-50/50 dark:hover:bg-slate-950/20 transition-colors"
+                        >
+                          <td className="p-4 flex items-center gap-3">
+                            <div className="w-9 h-9 bg-gradient-to-tr from-violet-500 to-indigo-500 text-white rounded-full flex items-center justify-center font-bold text-xs shadow-md">
+                              {u.name.substring(0, 2).toUpperCase()}
+                            </div>
+                            <div>
+                              <div className="font-bold text-slate-900 dark:text-white text-xs sm:text-sm">{u.name}</div>
+                              <div className="text-[10px] text-slate-400">ID: {u._id}</div>
+                            </div>
+                          </td>
+                          <td className="p-4">
+                            <div className="flex items-center gap-1.5 text-slate-750 dark:text-slate-300">
+                              <Mail className="w-3.5 h-3.5 text-slate-450" />
+                              <span>{u.email}</span>
+                            </div>
+                          </td>
+                          <td className="p-4">
+                            <span className={`inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full text-[10px] font-bold tracking-wide uppercase ${
+                              u.role === 'admin' 
+                                ? 'bg-violet-550/10 text-violet-600 dark:text-violet-400 border border-violet-500/20' 
+                                : 'bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-400 border border-slate-200 dark:border-slate-750'
+                            }`}>
+                              {u.role === 'admin' ? 'Developer / Admin' : 'Candidate'}
+                            </span>
+                          </td>
+                          <td className="p-4">
+                            <div className="flex items-center gap-2">
+                              <span className="font-extrabold text-slate-900 dark:text-white">{u.interviewCount || 0}</span>
+                              <span className="text-[10px] text-slate-450">Interviews Started</span>
+                            </div>
+                          </td>
+                          <td className="p-4 text-slate-500 dark:text-slate-450">
+                            {new Date(u.createdAt).toLocaleDateString(undefined, {
+                              year: 'numeric',
+                              month: 'short',
+                              day: 'numeric'
+                            })}
+                          </td>
+                        </tr>
+                      ))}
+                    </tbody>
+                  </table>
+                </div>
+              )}
             </div>
           </div>
         )}

@@ -1,4 +1,5 @@
 import User from '../models/User.js';
+import InterviewSession from '../models/InterviewSession.js';
 import jwt from 'jsonwebtoken';
 
 const generateToken = (id) => {
@@ -33,6 +34,7 @@ export const registerUser = async (req, res) => {
         _id: user._id,
         name: user.name,
         email: user.email,
+        role: user.role,
         token: generateToken(user._id)
       });
     } else {
@@ -57,6 +59,7 @@ export const authUser = async (req, res) => {
         _id: user._id,
         name: user.name,
         email: user.email,
+        role: user.role,
         token: generateToken(user._id)
       });
     } else {
@@ -114,6 +117,29 @@ export const resetPassword = async (req, res) => {
     await user.save();
 
     res.json({ message: 'Password reset successful! You can now log in.' });
+  } catch (error) {
+    res.status(500).json({ message: error.message });
+  }
+};
+
+// @desc    Get all registered users with their interview statistics
+// @route   GET /api/auth/users
+// @access  Private/Admin
+export const getAllUsers = async (req, res) => {
+  try {
+    const users = await User.find({}).select('-password').sort({ createdAt: -1 });
+
+    const usersWithStats = await Promise.all(
+      users.map(async (u) => {
+        const interviewCount = await InterviewSession.countDocuments({ userId: u._id });
+        return {
+          ...u.toObject(),
+          interviewCount
+        };
+      })
+    );
+
+    res.json(usersWithStats);
   } catch (error) {
     res.status(500).json({ message: error.message });
   }

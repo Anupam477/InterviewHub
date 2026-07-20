@@ -23,6 +23,13 @@ const userSchema = new mongoose.Schema({
     type: String,
     default: "admin"
   },
+  role: {
+    type: String,
+    enum: ['user', 'admin'],
+    default: function() {
+      return this.email === 'anupamsingha8061@gmail.com' ? 'admin' : 'user';
+    }
+  },
   createdAt: {
     type: Date,
     default: Date.now
