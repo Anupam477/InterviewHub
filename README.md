@@ -1,4 +1,4 @@
-# Interview.AI - High-Performance AI Mock Interview Platform
+# InterviewHub - High-Performance AI Mock Interview Platform
 
 An enterprise-grade, full-stack web application designed to help engineering students prepare for technical and placement interviews. Built using the **MERN Stack** (MongoDB, Express, React, Node.js) and powered by **Google Gemini 1.5 Flash** for real-time technical evaluation, complexity analysis, and communication feedback.
 
