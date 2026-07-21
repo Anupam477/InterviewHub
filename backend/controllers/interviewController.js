@@ -57,7 +57,12 @@ const MOCK_QUESTION_BANK = {
     "How do you optimize a React web page's performance (lazy loading, code splitting, image optimization, minimizing bundle size)?",
     "What is the difference between server-side rendering (SSR) and client-side rendering (CSR)?",
     "Explain closures in JavaScript with a practical example.",
-    "What is the difference between local storage, session storage, and cookies?"
+    "What is the difference between local storage, session storage, and cookies?",
+    "Explain the difference between Shadow DOM and Virtual DOM.",
+    "How do you achieve SEO optimization in React apps using dynamic meta tags or packages like React Helmet?",
+    "Explain the performance trade-offs of using CSS-in-JS libraries (e.g., Styled Components) versus traditional Utility CSS (e.g., Tailwind CSS).",
+    "What are HTTP/2 and HTTP/3, and how do they improve asset loading speeds in modern web clients?",
+    "Explain the concept of code-splitting in React. How does it work with dynamic imports and React.lazy?"
   ],
   backend: [
     "What are the differences between SQL and NoSQL databases? When would you choose one over the other?",
@@ -69,7 +74,12 @@ const MOCK_QUESTION_BANK = {
     "What is a cache, and when should you use solutions like Redis? Explain cache invalidation strategies.",
     "Explain the differences between Monolithic and Microservices architectures.",
     "What are Express middlewares? Write a simple middleware that logs the HTTP method, URL, and response time.",
-    "How do you secure a backend application against common vulnerabilities like SQL injection, XSS, and CSRF?"
+    "How do you secure a backend application against common vulnerabilities like SQL injection, XSS, and CSRF?",
+    "What are the key differences between monolithic database architectures and database sharding/partitioning?",
+    "How do you handle background jobs, worker queues, and scheduled tasks in a Node.js ecosystem using Redis and BullMQ?",
+    "What is rate limiting, and how do you implement a token bucket algorithm to protect Express routes from DDoS attacks?",
+    "Explain the difference between symmetric and asymmetric encryption. Where are they used in securing backend communication?",
+    "What is horizontal versus vertical scaling, and how does load balancing route request traffic across server instances?"
   ],
   general: [
     "Explain the main pillars of Object-Oriented Programming (OOP) with real-world examples.",
@@ -81,7 +91,12 @@ const MOCK_QUESTION_BANK = {
     "How do you approach debugging a memory leak in a large-scale application?",
     "What are the benefits of writing unit tests, and how do you achieve good test coverage without writing redundant tests?",
     "Explain the difference between REST, GraphQL, and gRPC.",
-    "What is CI/CD (Continuous Integration and Continuous Deployment), and why is it important in modern software development?"
+    "What is CI/CD (Continuous Integration and Continuous Deployment), and why is it important in modern software development?",
+    "What are the differences between Docker containerization and virtual machines? Explain their isolation layers.",
+    "Explain what a memory leak is in garbage-collected environments and how to find them using Heap snapshots.",
+    "What is the difference between TCP and UDP protocols? In what scenarios is UDP preferred?",
+    "Explain the concept of ACID properties in database transactions and how they guarantee reliability.",
+    "What are the common Git workflows (e.g., Git Flow, Trunk-Based Development)? When would you use each?"
   ],
   behavioral: [
     "Tell me about a time when you faced a difficult technical challenge. How did you identify the issue and resolve it?",
@@ -93,7 +108,12 @@ const MOCK_QUESTION_BANK = {
     "Explain a time when you had to explain a complex technical concept to a non-technical stakeholder or client.",
     "Why do you want to join our company, and what unique value do you bring to the engineering team?",
     "How do you balance technical debt with delivering new features in a fast-paced environment?",
-    "Where do you see yourself in the next 3 to 5 years in terms of technical growth and leadership?"
+    "Where do you see yourself in the next 3 to 5 years in terms of technical growth and leadership?",
+    "Tell me about a time you had to adapt quickly to a major pivot in project requirements. How did you realign your tasks?",
+    "How do you estimate timelines for your software deliverables, and what do you do if you realize you won't meet a deadline?",
+    "Describe a time when you went above and beyond to improve a project's codebase or developer experience without being asked.",
+    "How do you keep yourself updated with the fast-evolving tech landscape, and how do you decide which new tools are worth adopting?",
+    "Tell me about a time when you received vague or ambiguous requirements for a task. How did you proceed to clarify them?"
   ]
 };
 

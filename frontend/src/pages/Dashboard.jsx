@@ -72,6 +72,116 @@ const QUIZ_DATA = {
       ],
       answer: 1,
       explain: "MERN stands for MongoDB, Express.js, React.js, and Node.js, representing a complete JavaScript stack."
+    },
+    {
+      q: "What is the purpose of CORS middleware in an Express application?",
+      options: [
+        "To parse JSON request bodies.",
+        "To encrypt user session IDs.",
+        "To allow or restrict resource requests from other domains.",
+        "To handle database indexing configurations."
+      ],
+      answer: 2,
+      explain: "CORS (Cross-Origin Resource Sharing) is a security feature that controls how web browsers allow or deny cross-origin requests."
+    },
+    {
+      q: "In React, what is the key benefit of using a functional component state initializer function: `useState(() => getInitialValue())`?",
+      options: [
+        "It stores state values directly in local storage.",
+        "It runs the initialization logic only once during the initial mount phase.",
+        "It automatically updates state values on window resize.",
+        "It prevents functional components from being re-rendered."
+      ],
+      answer: 1,
+      explain: "A state initializer function runs only once, preventing expensive initial calculation code from executing on every subsequent component render."
+    },
+    {
+      q: "Which MongoDB operator is used to update fields in a document without rewriting the entire document?",
+      options: [
+        "$update",
+        "$push",
+        "$set",
+        "$inc"
+      ],
+      answer: 2,
+      explain: "The $set operator replaces the value of a field with the specified value, maintaining other fields untouched."
+    },
+    {
+      q: "What is the role of React's useMemo hook?",
+      options: [
+        "To memoize expensive functions so they don't rerun on every render unless dependencies change.",
+        "To store variables in memory that trigger UI refreshes on updates.",
+        "To directly perform network API requests.",
+        "To manage user authentication context variables."
+      ],
+      answer: 0,
+      explain: "useMemo caches the result of a calculation between renders, only recomputing when one of the dependencies changes."
+    },
+    {
+      q: "In React, how can you optimize a component to prevent unnecessary re-renders when its props do not change?",
+      options: [
+        "Wrap the component with React.memo",
+        "Use the useMemo hook inside the component",
+        "Wrap the component with React.Fragment",
+        "Convert the component into a Class component"
+      ],
+      answer: 0,
+      explain: "React.memo is a higher-order component that performs a shallow comparison of props to skip re-rendering if props are unchanged."
+    },
+    {
+      q: "What does JWT (JSON Web Token) payload typically store?",
+      options: [
+        "A private database access key.",
+        "Non-sensitive user details / claims like userId and role.",
+        "The encrypted password of the user.",
+        "The complete history of client API calls."
+      ],
+      answer: 1,
+      explain: "JWT payloads contain claims (information about an entity, such as user ID or roles) which are encoded, not encrypted, so they shouldn't contain sensitive data."
+    },
+    {
+      q: "In Express, what is the correct order of parameters for an error-handling middleware function?",
+      options: [
+        "(req, res, next)",
+        "(err, req, res)",
+        "(err, req, res, next)",
+        "(req, res, err, next)"
+      ],
+      answer: 2,
+      explain: "Express identifies error-handling middleware by checking if the handler function takes exactly four arguments: (err, req, res, next)."
+    },
+    {
+      q: "What is the purpose of React's useRef hook?",
+      options: [
+        "To reference external stylesheets programmatically.",
+        "To persist mutable values without triggering a re-render, and to reference DOM elements directly.",
+        "To establish a secure Web Socket connection.",
+        "To dispatch actions to a Redux store."
+      ],
+      answer: 1,
+      explain: "useRef returns a mutable ref object whose .current property is initialized to the passed argument. It doesn't trigger re-renders."
+    },
+    {
+      q: "Which Node.js core module provides utilities for handling and transforming file paths?",
+      options: [
+        "fs",
+        "path",
+        "url",
+        "http"
+      ],
+      answer: 1,
+      explain: "The Node.js 'path' module contains utilities to help parse, format, resolve, and join local file path systems."
+    },
+    {
+      q: "What is the role of Mongoose validation in a MERN stack application?",
+      options: [
+        "It verifies the security signature of incoming HTTP cookies.",
+        "It encrypts request data before it is stored in the database.",
+        "It enforces schema constraints and rules before saving documents to MongoDB.",
+        "It checks if the MongoDB database service is running locally."
+      ],
+      answer: 2,
+      explain: "Mongoose models run internal validators (e.g., required, min/max, custom regex) to ensure data matches schema rules before write queries run."
     }
   ],
   dsa: [
@@ -129,6 +239,116 @@ const QUIZ_DATA = {
       ],
       answer: 1,
       explain: "Hash tables resolve keys to indices using a hash function, achieving average O(1) time complexity for lookup operations."
+    },
+    {
+      q: "Which data structure is used internally by the Breadth-First Search (BFS) traversal of a graph?",
+      options: [
+        "Stack",
+        "Priority Queue",
+        "Queue",
+        "Binary Search Tree"
+      ],
+      answer: 2,
+      explain: "BFS uses a Queue (First-In-First-Out) to visit neighbor nodes level-by-level."
+    },
+    {
+      q: "What is the time complexity of searching for an element in a balanced Hash Map in the worst-case (assuming hash collision chain)?",
+      options: [
+        "O(1)",
+        "O(log N)",
+        "O(N)",
+        "O(N log N)"
+      ],
+      answer: 2,
+      explain: "In the worst case, if all elements hash to the same bucket (forming a single chain), searching takes O(N) operations."
+    },
+    {
+      q: "Which algorithm uses the divide-and-conquer strategy?",
+      options: [
+        "Dijkstra's Algorithm",
+        "Kruskal's Algorithm",
+        "Merge Sort",
+        "KMP String Matcher"
+      ],
+      answer: 2,
+      explain: "Merge Sort repeatedly splits an array in half (divide), sorts the halves, and merges them (conquer)."
+    },
+    {
+      q: "What is the space complexity of a recursive depth-first search (DFS) traversal on a tree with a height of H?",
+      options: [
+        "O(1)",
+        "O(log H)",
+        "O(H)",
+        "O(N)"
+      ],
+      answer: 2,
+      explain: "Recursive DFS stores parent nodes on the system call stack, matching the tree's height O(H) in space."
+    },
+    {
+      q: "In a Min-Heap, where is the smallest element located?",
+      options: [
+        "Always at the root node",
+        "Always at the bottom-most leaf node",
+        "At random positions inside the heap array",
+        "At the second index of the array"
+      ],
+      answer: 0,
+      explain: "A Min-Heap maintains the min-heap property: parent node values are less than or equal to their children, meaning the minimum value is always at the root."
+    },
+    {
+      q: "What is the time complexity to insert an element at the beginning of a singly linked list of size N?",
+      options: [
+        "O(1)",
+        "O(log N)",
+        "O(N)",
+        "O(N log N)"
+      ],
+      answer: 0,
+      explain: "Inserting at the head only requires changing the pointer of the new node to point to the current head, taking O(1) time."
+    },
+    {
+      q: "Which of the following is a classic application of a Stack?",
+      options: [
+        "Handling printing jobs in printer queues.",
+        "Round-robin CPU job scheduling.",
+        "Balancing parentheses check in editors.",
+        "Shortest path search in games."
+      ],
+      answer: 2,
+      explain: "A Stack is used to match open/close brackets because the last opened bracket must be the first one closed."
+    },
+    {
+      q: "What is the worst-case time complexity of the Quick Sort algorithm?",
+      options: [
+        "O(N)",
+        "O(N log N)",
+        "O(N²)",
+        "O(2^N)"
+      ],
+      answer: 2,
+      explain: "Quick Sort worst case is O(N²), which happens when the pivot element consistently divides the array into extremely unbalanced parts (e.g. sorted arrays)."
+    },
+    {
+      q: "If a graph has V vertices and E edges, what is the time complexity of Dijkstra's algorithm using a binary heap?",
+      options: [
+        "O(V + E)",
+        "O(V log E)",
+        "O((V + E) log V)",
+        "O(V²)"
+      ],
+      answer: 2,
+      explain: "With a binary min-priority heap, extracting min takes O(log V) and updating edge weights takes O(log V), yielding O((V + E) log V) time."
+    },
+    {
+      q: "Which traversal of a Binary Search Tree (BST) outputs the elements in sorted ascending order?",
+      options: [
+        "Pre-order traversal",
+        "In-order traversal",
+        "Post-order traversal",
+        "Level-order traversal"
+      ],
+      answer: 1,
+      explain: "In-order traversal visits the left subtree, the root, and then the right subtree, outputting keys in ascending order."
     }
   ],
   java: [
@@ -186,6 +406,116 @@ const QUIZ_DATA = {
       ],
       answer: 1,
       explain: "'==' checks if both string objects reside in the same memory location (reference comparison), whereas '.equals()' compares character contents."
+    },
+    {
+      q: "Which class is the ultimate superclass of all classes in Java?",
+      options: [
+        "java.lang.String",
+        "java.lang.Object",
+        "java.lang.Class",
+        "java.lang.System"
+      ],
+      answer: 1,
+      explain: "Every class in Java directly or indirectly inherits from the Object class."
+    },
+    {
+      q: "What is the purpose of the `volatile` keyword in Java?",
+      options: [
+        "It prevents values from being garbage collected.",
+        "It tells the compiler that the variable's value may change asynchronously across threads, forcing reads/writes from main memory.",
+        "It secures variables by performing runtime cryptographic encryption.",
+        "It allows variables to be modified in read-only files."
+      ],
+      answer: 1,
+      explain: "volatile guarantees thread visibility. Reads and writes to a volatile variable go directly to main memory, bypassing thread caches."
+    },
+    {
+      q: "Which of the following is true about abstract classes and interfaces in Java 8+?",
+      options: [
+        "Interfaces can now contain constructors.",
+        "Interfaces cannot define static variables.",
+        "Interfaces can have default and static method implementations.",
+        "Abstract classes can no longer extend other classes."
+      ],
+      answer: 2,
+      explain: "Java 8 introduced default methods (using default keyword) and static methods inside interfaces to maintain backward compatibility."
+    },
+    {
+      q: "What exception is thrown when an application attempts to use null in a case where an object is required?",
+      options: [
+        "IllegalArgumentException",
+        "NullPointerException",
+        "ArithmeticException",
+        "ClassCastException"
+      ],
+      answer: 1,
+      explain: "NullPointerException occurs when you attempt to invoke methods, access fields, or measure length of a null pointer object."
+    },
+    {
+      q: "Which Java Collections Framework interface does NOT allow duplicate elements?",
+      options: [
+        "List",
+        "Set",
+        "Map",
+        "Queue"
+      ],
+      answer: 1,
+      explain: "The Set interface defines a collection of unique elements, rejecting duplicate inserts."
+    },
+    {
+      q: "What is the main advantage of Java's String Pool?",
+      options: [
+        "It increases the speed of local string indexing.",
+        "It optimizes memory allocation by reusing identical string literals.",
+        "It allows Strings to be dynamically resized like ArrayLists.",
+        "It prevents memory leaks automatically."
+      ],
+      answer: 1,
+      explain: "String pool stores string literals. If a matching literal already exists, the JVM refers to it rather than instantiating a new object, saving heap space."
+    },
+    {
+      q: "Which of the following statements is true about a Java constructor?",
+      options: [
+        "It must return an object of its own class type.",
+        "It does not have any return type, not even void.",
+        "It can be declared as static.",
+        "It must be declared as private in all circumstances."
+      ],
+      answer: 1,
+      explain: "Java constructors set up the initial state of an object and do not specify a return type, not even 'void'."
+    },
+    {
+      q: "What does the `finally` block in exception handling guarantee?",
+      options: [
+        "That the exception will be suppressed.",
+        "Execution of cleanup code regardless of whether an exception is thrown or caught.",
+        "That compilation will succeed despite logical errors.",
+        "That code execution time will be halved."
+      ],
+      answer: 1,
+      explain: "A finally block always runs when the try block exits, ensuring crucial resources are closed even if errors occur."
+    },
+    {
+      q: "What is 'Autoboxing' in Java?",
+      options: [
+        "The automatic backup of Java class files in cloud containers.",
+        "The automatic conversion of primitive types to their corresponding object wrapper classes.",
+        "The conversion of Java code directly to C++ source formats.",
+        "The automatic allocation of Heap memory segments."
+      ],
+      answer: 1,
+      explain: "Autoboxing is the automatic compilation-step conversion the Java compiler makes between primitives (e.g. int) and their Object wrappers (e.g. Integer)."
+    },
+    {
+      q: "Which Java collection is synchronized and thread-safe by default?",
+      options: [
+        "ArrayList",
+        "HashMap",
+        "Vector",
+        "StringBuilder"
+      ],
+      answer: 2,
+      explain: "Vector is synchronized internally using method-level locks, making it safe for multithreading, though it is slower than ArrayList."
     }
   ],
   webdb: [
@@ -243,6 +573,116 @@ const QUIZ_DATA = {
       ],
       answer: 1,
       explain: "justify-content defines the alignment of flex items along the main flex layout direction (horizontal by default)."
+    },
+    {
+      q: "Which HTTP method is considered idempotent?",
+      options: [
+        "POST",
+        "GET",
+        "PATCH",
+        "None of the above"
+      ],
+      answer: 1,
+      explain: "GET is idempotent because multiple identical requests will produce the same side-effect-free result on the database."
+    },
+    {
+      q: "In SQL, what is the difference between DELETE and TRUNCATE commands?",
+      options: [
+        "DELETE is a DDL command; TRUNCATE is a DML command.",
+        "DELETE is slow and can be rolled back; TRUNCATE is faster and cannot be rolled back.",
+        "DELETE removes table structures; TRUNCATE only removes columns.",
+        "They are fully identical in speed and transaction logs."
+      ],
+      answer: 1,
+      explain: "DELETE is a DML command that operates line-by-line logging transactions, allowing rollback. TRUNCATE is DDL, deallocating complete page data blocks directly."
+    },
+    {
+      q: "What is the purpose of the `alt` attribute in HTML `<img>` tags?",
+      options: [
+        "To define the layout alignment of images.",
+        "To provide alternative text description for screen readers and if the image fails to load.",
+        "To scale the height of an image.",
+        "To link images to external web pages."
+      ],
+      answer: 1,
+      explain: "The alt attribute provides alternative descriptions for accessibility (screen readers) and helps SEO engines index image context."
+    },
+    {
+      q: "Which CSS selector is used to target all elements that are direct children of a parent?",
+      options: [
+        "Parent Child (Space selector)",
+        "Parent + Child (Plus selector)",
+        "Parent > Child (Greater-than selector)",
+        "Parent ~ Child (Tilde selector)"
+      ],
+      answer: 2,
+      explain: "The 'parent > child' child combinator matches only elements that are immediate children of the parent element."
+    },
+    {
+      q: "In relational databases, what does a 'Foreign Key' constraint enforce?",
+      options: [
+        "Referential integrity between two related tables.",
+        "High performance reading indexes.",
+        "Strict database password encryption policies.",
+        "Unique constraint indexing on a primary column."
+      ],
+      answer: 0,
+      explain: "A Foreign Key establishes a relation link between tables, ensuring that value changes or deletions do not break cross-table referential integrity."
+    },
+    {
+      q: "What is the purpose of the `dns-prefetch` link relation in HTML headers?",
+      options: [
+        "To load scripts in a secondary background thread.",
+        "To resolve domain names before a user clicks a link, reducing resource latency.",
+        "To download image caches in advance.",
+        "To establish server-side database connections."
+      ],
+      answer: 1,
+      explain: "dns-prefetch prompts browser background routines to resolve the DNS query for a referenced asset source before it is requested."
+    },
+    {
+      q: "Which database normalization form ensures there are no transitive functional dependencies?",
+      options: [
+        "First Normal Form (1NF)",
+        "Second Normal Form (2NF)",
+        "Third Normal Form (3NF)",
+        "Boyce-Codd Normal Form (BCNF)"
+      ],
+      answer: 2,
+      explain: "A relation is in 3NF if it is in 2NF and has no transitive dependencies (where a non-prime attribute determines another non-prime attribute)."
+    },
+    {
+      q: "What does the CSS property `z-index` control?",
+      options: [
+        "The horizontal padding offset of containers.",
+        "The zoom level of active image elements.",
+        "The stack order of overlapping elements that have a non-static position.",
+        "The height of block elements."
+      ],
+      answer: 2,
+      explain: "z-index specifies the three-dimensional depth order of positioned elements (relative, absolute, fixed, or sticky)."
+    },
+    {
+      q: "What is the purpose of Git's `git stash` command?",
+      options: [
+        "To permanently delete modified files in working directory.",
+        "To temporarily shelf/save changes in the working directory so you can switch branches without committing.",
+        "To upload files to a remote repository server.",
+        "To resolve merge conflicts between active branches."
+      ],
+      answer: 1,
+      explain: "git stash saves local modifications to a temporary stash stack, restoring the workspace to match the clean HEAD commit."
+    },
+    {
+      q: "Which SQL JOIN returns all records from the left table and matched records from the right table, filling nulls if no match exists?",
+      options: [
+        "INNER JOIN",
+        "RIGHT OUTER JOIN",
+        "LEFT OUTER JOIN",
+        "FULL OUTER JOIN"
+      ],
+      answer: 2,
+      explain: "LEFT JOIN returns all rows from the left table, along with matching rows from the right table. Non-matching right columns return NULL values."
     }
   ]
 };
@@ -308,6 +748,66 @@ const HR_QUESTIONS = [
     ],
     response: "Over the next 5 years, I want to deeply master full-stack software architecture, focusing on microservices, system scalability, and cloud technologies. I see myself taking ownership of core product modules, contributing to technical design decisions, and mentoring junior engineers. Ultimately, I want to be recognized as a reliable technical leader within this engineering team, driving high-impact solutions that solve real business problems.",
     tips: "Do not say 'I want to be the CEO' or 'I want to start my own company'. Focus on technical milestones and growing value."
+  },
+  {
+    id: 6,
+    q: "How do you handle working on a team project when a member is not contributing?",
+    goal: "Evaluate collaboration, communication, and constructive problem-solving skills under peer friction.",
+    checklist: [
+      "Avoid direct blame; start with private, empathetic outreach.",
+      "Seek to understand if there are skill gaps, personal issues, or unclear scopes.",
+      "Quantify goals and help structure their subset tasks to get them back on track."
+    ],
+    response: "In our systems project, a team member missed two sprint updates. Instead of escalating, I reached out to them privately to understand if they were facing technical blockers. It turned out they felt overwhelmed by the Docker setup. I spent 30 minutes pair-programming with them to set up their container configuration. We then subdivided the API tasks into smaller, clearer steps. They caught up quickly, successfully delivered their modules, and we finished the project together.",
+    tips: "Show empathy first, then offer a structured way to collaborate. Interviewers want team players, not managers who run to report others."
+  },
+  {
+    id: 7,
+    q: "What is your approach to handling constructive criticism?",
+    goal: "Measure humility, feedback reception, and willingness to continuously learn and iterate on engineering quality.",
+    checklist: [
+      "Remain calm, objective, and separate your identity from your code.",
+      "Ask clarifying questions to understand the reviewer's reasoning.",
+      "Take notes and apply the recommendations systematically."
+    ],
+    response: "I view constructive criticism as an essential accelerator for growth. During a code review, a senior developer pointed out that my nested loops could be optimized using a Map, reducing time complexity. I initially felt protective, but quickly realized they were correct. I thanked them, studied their suggested pattern, and refactored the module. Since then, I actively review my code for redundant loops before pushing. I always try to learn from the expertise of others on my team.",
+    tips: "Never react defensively. Frame feedback as a tool to write more secure, readable, and performant code."
+  },
+  {
+    id: 8,
+    q: "Why do you want to transition into full-stack development?",
+    goal: "Evaluate your passion, technical curiosity, and whether you seek a comprehensive understanding of end-to-end applications.",
+    checklist: [
+      "Demonstrate interest in both backend scalability and frontend UX.",
+      "Show excitement about connecting databases, server business logic, and UI elements.",
+      "Mention that full-stack developers build features with higher autonomy."
+    ],
+    response: "I love full-stack development because it gives me the complete freedom to bring an idea to life. In frontend, I enjoy creating highly aesthetic, responsive user interfaces. In backend, I like designing database schemas, configuring REST routes, and optimizing performance. Being able to connect both worlds allows me to build features autonomously and understand the architectural tradeoffs of the whole system.",
+    tips: "Focus on the synergy between frontend and backend. Express a genuine desire to own the entire feature delivery lifecycle."
+  },
+  {
+    id: 9,
+    q: "Explain a time when you had to prioritize multiple tasks under a tight deadline.",
+    goal: "Assess time management, priority mapping (Eisenhower matrix), and communication under pressure.",
+    checklist: [
+      "Briefly set the situation with overlapping deadlines.",
+      "Explain your prioritization criteria (critical path, business impact).",
+      "Detail how you communicated updates to stakeholders or teammates."
+    ],
+    response: "During our semester final week, I had a database exam and a major MERN project submission due on the same day. I created a task board, dividing the project into 'must-have' features and 'nice-to-have' micro-animations. I focused on completing the core API routing and user login first. Once the app was functional, I dedicated structured blocks of time to study database indexing. This balance allowed me to score an A in the exam and submit a working project on time.",
+    tips: "Highlight the system you used to organize your tasks. Be practical and show how you managed your energy and time."
+  },
+  {
+    id: 10,
+    q: "What would you do if you realized you made a critical error in your code after submitting it?",
+    goal: "Evaluate ownership, accountability, speed of communication, and mitigation planning.",
+    checklist: [
+      "Take immediate ownership without trying to hide it.",
+      "Notify the team leader or appropriate reviewer quickly with a proposed solution.",
+      "Create a quick fix branch, verify it, and apply the patch transparently."
+    ],
+    response: "If I find a critical bug post-submission, I take immediate responsibility. I notify my team or the reviewer immediately, explaining the impact of the bug and presenting a tested hotfix. In a recent project, I realized a route lacked token validation after raising a PR. I quickly messaged the reviewer, created a patch branch, added the validation middleware, and verified it. I then merged the fix, thanking the team for their patience.",
+    tips: "Ownership is key. Show that you don't panic and that your first priority is securing the system and communicating honestly."
   }
 ];
 
@@ -350,6 +850,24 @@ const CODING_QUESTIONS = {
         { args: "[\"bbbbb\"]", expected: "1", desc: "Repeated single letter" },
         { args: "[\"pwwkew\"]", expected: "3", desc: "Sub-string 'wke'" }
       ]
+    },
+    {
+      id: "g3",
+      title: "Merge Intervals",
+      difficulty: "Medium",
+      desc: "Given an array of `intervals` where `intervals[i] = [start, end]`, merge all overlapping intervals, and return an array of the non-overlapping intervals that cover all the intervals in the input.",
+      input: "intervals = [[1,3],[2,6],[8,10],[15,18]]",
+      output: "[[1,6],[8,10],[15,18]]",
+      template: {
+        javascript: "function solve(intervals) {\n  // Write your JavaScript code here\n  \n}",
+        python: "def solve(intervals: list) -> list:\n    # Write your Python code here\n    return []",
+        cpp: "#include <vector>\nusing namespace std;\nclass Solution {\npublic:\n    vector<vector<int>> solve(vector<vector<int>>& intervals) {\n        return {};\n    }\n};",
+        java: "import java.util.*;\nclass Solution {\n    public int[][] solve(int[][] intervals) {\n        return new int[0][0];\n    }\n}"
+      },
+      testCases: [
+        { args: "[[[1,3],[2,6],[8,10],[15,18]]]", expected: "[[1,6],[8,10],[15,18]]", desc: "Standard overlapping intervals" },
+        { args: "[[[1,4],[4,5]]]", expected: "[[1,5]]", desc: "Edge-to-edge overlap" }
+      ]
     }
   ],
   Amazon: [
@@ -388,6 +906,25 @@ const CODING_QUESTIONS = {
       testCases: [
         { args: "[[[1,3], [-2,2]], 1]", expected: "[[-2,2]]", desc: "Compare coordinates" },
         { args: "[[[3,3], [5,-1], [-2,4]], 2]", expected: "[[3,3],[-2,4]]", desc: "Retrieve closest 2" }
+      ]
+    },
+    {
+      id: "a3",
+      title: "Valid Parentheses",
+      difficulty: "Easy",
+      desc: "Given a string `s` containing just the characters `(`, `)`, `{`, `}`, `[` and `]`, determine if the input string is valid.\n\nAn input string is valid if open brackets are closed by the same type of brackets and in the correct order.",
+      input: "s = \"()[]{}\"",
+      output: "true",
+      template: {
+        javascript: "function solve(s) {\n  // Write your JavaScript code here\n  \n}",
+        python: "def solve(s: str) -> bool:\n    # Write your Python code here\n    return False",
+        cpp: "#include <string>\nusing namespace std;\nclass Solution {\npublic:\n    bool solve(string s) {\n        return false;\n    }\n};",
+        java: "class Solution {\n    public boolean solve(String s) {\n        return false;\n    }\n}"
+      },
+      testCases: [
+        { args: "[\"()[]{}\"]", expected: "true", desc: "All brackets matched" },
+        { args: "[\"(]\"]", expected: "false", desc: "Mismatched close bracket" },
+        { args: "[\"([])\"]", expected: "true", desc: "Correctly nested brackets" }
       ]
     }
   ],
@@ -428,6 +965,24 @@ const CODING_QUESTIONS = {
         { args: "[[1, 2, 3, 4]]", expected: "[24,12,8,6]", desc: "Standard array elements" },
         { args: "[[[-1, 1, 0, -3, 3]]]", expected: "[0,0,9,0,0]", desc: "Contains zero" }
       ]
+    },
+    {
+      id: "m3",
+      title: "Subarray Sum Equals K",
+      difficulty: "Medium",
+      desc: "Given an array of integers `nums` and an integer `k`, return the total number of subarrays whose sum equals to `k`.\n\nA subarray is a contiguous non-empty sequence of elements within an array.",
+      input: "nums = [1,1,1], k = 2",
+      output: "2",
+      template: {
+        javascript: "function solve(nums, k) {\n  // Write your JavaScript code here\n  \n}",
+        python: "def solve(nums: list, k: int) -> int:\n    # Write your Python code here\n    return 0",
+        cpp: "#include <vector>\nusing namespace std;\nclass Solution {\npublic:\n    int solve(vector<int>& nums, int k) {\n        return 0;\n    }\n};",
+        java: "class Solution {\n    public int solve(int[] nums, int k) {\n        return 0;\n    }\n}"
+      },
+      testCases: [
+        { args: "[[1, 1, 1], 2]", expected: "2", desc: "Two subarrays sum to 2" },
+        { args: "[[1, 2, 3], 3]", expected: "2", desc: "Subarrays [1, 2] and [3]" }
+      ]
     }
   ],
   TCS: [
@@ -465,6 +1020,25 @@ const CODING_QUESTIONS = {
       testCases: [
         { args: "[\"anagram\", \"nagaram\"]", expected: "true", desc: "Valid anagram check" },
         { args: "[\"rat\", \"car\"]", expected: "false", desc: "Invalid letters overlap" }
+      ]
+    },
+    {
+      id: "t3",
+      title: "Fibonacci Number",
+      difficulty: "Easy",
+      desc: "The Fibonacci numbers, commonly denoted `F(n)` form a sequence, called the Fibonacci sequence, such that each number is the sum of the two preceding ones, starting from 0 and 1. Given `n`, calculate `F(n)`.",
+      input: "n = 4",
+      output: "3",
+      template: {
+        javascript: "function solve(n) {\n  // Write your JavaScript code here\n  \n}",
+        python: "def solve(n: int) -> int:\n    # Write your Python code here\n    return 0",
+        cpp: "class Solution {\npublic:\n    int solve(int n) {\n        return 0;\n    }\n};",
+        java: "class Solution {\n    public int solve(int n) {\n        return 0;\n    }\n}"
+      },
+      testCases: [
+        { args: "[2]", expected: "1", desc: "F(2) is 1" },
+        { args: "[3]", expected: "2", desc: "F(3) is 2" },
+        { args: "[4]", expected: "3", desc: "F(4) is 3" }
       ]
     }
   ]
@@ -525,6 +1099,7 @@ const Dashboard = ({ onStartSession, onViewReport, onLogout }) => {
   const [isQuizAnswerSubmitted, setIsQuizAnswerSubmitted] = useState(false);
   const [quizScore, setQuizScore] = useState(0);
   const [quizCompleted, setQuizCompleted] = useState(false);
+  const [activeQuizQuestions, setActiveQuizQuestions] = useState([]);
 
   // HR Round States
   const [expandedHRIdx, setExpandedHRIdx] = useState(null);
@@ -623,6 +1198,10 @@ const Dashboard = ({ onStartSession, onViewReport, onLogout }) => {
   // QUIZ LOGIC HANDLERS
   // ------------------------------------------
   const startQuiz = (topic) => {
+    const fullList = QUIZ_DATA[topic] || [];
+    const shuffled = [...fullList].sort(() => 0.5 - Math.random());
+    const selected = shuffled.slice(0, 5);
+    setActiveQuizQuestions(selected);
     setSelectedQuizTopic(topic);
     setCurrentQuizIdx(0);
     setSelectedQuizOption(null);
@@ -640,7 +1219,7 @@ const Dashboard = ({ onStartSession, onViewReport, onLogout }) => {
     if (selectedQuizOption === null || isQuizAnswerSubmitted) return;
     
     setIsQuizAnswerSubmitted(true);
-    const questionsList = QUIZ_DATA[selectedQuizTopic];
+    const questionsList = activeQuizQuestions;
     const isCorrect = selectedQuizOption === questionsList[currentQuizIdx].answer;
     
     if (isCorrect) {
@@ -649,7 +1228,7 @@ const Dashboard = ({ onStartSession, onViewReport, onLogout }) => {
   };
 
   const handleNextQuizQuestion = () => {
-    const questionsList = QUIZ_DATA[selectedQuizTopic];
+    const questionsList = activeQuizQuestions;
     if (currentQuizIdx < questionsList.length - 1) {
       setCurrentQuizIdx(prev => prev + 1);
       setSelectedQuizOption(null);
@@ -805,7 +1384,7 @@ const Dashboard = ({ onStartSession, onViewReport, onLogout }) => {
             {/* Welcome Header */}
             <div className="text-center md:text-left space-y-2 animate-slide-up">
               <h1 className="text-3xl font-extrabold tracking-tight text-slate-900 dark:text-white sm:text-4xl">
-                Placement Preparation <span className="bg-gradient-to-r from-indigo-650 to-purple-600 dark:from-indigo-400 dark:to-purple-400 bg-clip-text text-transparent">Workspace</span>
+                Placement Preparation <span className="bg-gradient-to-r from-indigo-600 to-purple-600 dark:from-indigo-400 dark:to-purple-400 bg-clip-text text-transparent">Workspace</span>
               </h1>
               <p className="text-sm sm:text-base text-slate-500 dark:text-slate-400 max-w-2xl">
                 Select a structured prep module below to build skills, test database fundamentals, code in real-time, or evaluate past results.
@@ -814,7 +1393,7 @@ const Dashboard = ({ onStartSession, onViewReport, onLogout }) => {
 
             {/* Quick Stat Panel */}
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 animate-slide-up delay-100">
-              <div className="p-5 glass-panel rounded-2xl border border-slate-200 dark:border-slate-850 flex items-center gap-4 hover:scale-[1.02] transition-transform duration-300 shadow-sm">
+              <div className="p-5 glass-panel rounded-2xl border border-slate-200 dark:border-slate-800 flex items-center gap-4 hover:scale-[1.02] transition-transform duration-300 shadow-sm">
                 <div className="p-3 bg-indigo-500/10 rounded-xl text-indigo-500">
                   <BookOpen className="w-6 h-6" />
                 </div>
@@ -823,7 +1402,7 @@ const Dashboard = ({ onStartSession, onViewReport, onLogout }) => {
                   <div className="text-xl font-bold text-slate-800 dark:text-white">{history.length} Sessions</div>
                 </div>
               </div>
-              <div className="p-5 glass-panel rounded-2xl border border-slate-200 dark:border-slate-850 flex items-center gap-4 hover:scale-[1.02] transition-transform duration-300 shadow-sm">
+              <div className="p-5 glass-panel rounded-2xl border border-slate-200 dark:border-slate-800 flex items-center gap-4 hover:scale-[1.02] transition-transform duration-300 shadow-sm">
                 <div className="p-3 bg-emerald-500/10 rounded-xl text-emerald-500">
                   <Award className="w-6 h-6" />
                 </div>
@@ -836,7 +1415,7 @@ const Dashboard = ({ onStartSession, onViewReport, onLogout }) => {
                   </div>
                 </div>
               </div>
-              <div className="p-5 glass-panel rounded-2xl border border-slate-200 dark:border-slate-850 flex items-center gap-4 hover:scale-[1.02] transition-transform duration-300 shadow-sm">
+              <div className="p-5 glass-panel rounded-2xl border border-slate-200 dark:border-slate-800 flex items-center gap-4 hover:scale-[1.02] transition-transform duration-300 shadow-sm">
                 <div className="p-3 bg-red-500/10 rounded-xl text-red-500">
                   <AlertTriangle className="w-6 h-6" />
                 </div>
@@ -856,13 +1435,13 @@ const Dashboard = ({ onStartSession, onViewReport, onLogout }) => {
               <div className="animate-slide-up delay-200">
                 <div 
                   onClick={() => setActiveModule('interview-prep')}
-                  className="group relative p-6 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-850 rounded-3xl hover:border-indigo-500 dark:hover:border-indigo-500 cursor-pointer shadow-sm hover:shadow-indigo-500/10 dark:hover:shadow-indigo-500/5 hover:bg-gradient-to-br hover:from-white hover:to-indigo-50/5 dark:hover:from-slate-900 dark:hover:to-indigo-950/10 card-bounce-transition transform hover:-translate-y-3 flex flex-col justify-between min-h-[220px] h-full"
+                  className="group relative p-6 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-3xl hover:border-indigo-500 dark:hover:border-indigo-500 cursor-pointer shadow-sm hover:shadow-indigo-500/10 dark:hover:shadow-indigo-500/5 hover:bg-gradient-to-br hover:from-white hover:to-indigo-50/5 dark:hover:from-slate-900 dark:hover:to-indigo-950/10 card-bounce-transition transform hover:-translate-y-3 flex flex-col justify-between min-h-[220px] h-full"
                 >
                   <div className="space-y-3 text-left">
                     <div className="p-3 bg-indigo-500/10 text-indigo-500 rounded-2xl w-fit group-hover:scale-110 group-hover:rotate-6 transition-all duration-300">
                       <Sparkles className="w-7 h-7 animate-pulse-soft" />
                     </div>
-                    <h3 className="text-lg font-bold text-slate-900 dark:text-white group-hover:text-indigo-650 dark:group-hover:text-indigo-400 transition-colors">
+                    <h3 className="text-lg font-bold text-slate-900 dark:text-white group-hover:text-indigo-600 dark:group-hover:text-indigo-400 transition-colors">
                       Interview Preparation
                     </h3>
                     <p className="text-xs text-slate-500 dark:text-slate-400 leading-relaxed">
@@ -879,13 +1458,13 @@ const Dashboard = ({ onStartSession, onViewReport, onLogout }) => {
               <div className="animate-slide-up delay-300">
                 <div 
                   onClick={() => { setActiveModule('quizzes'); setSelectedQuizTopic(null); }}
-                  className="group relative p-6 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-850 rounded-3xl hover:border-emerald-500 dark:hover:border-emerald-500 cursor-pointer shadow-sm hover:shadow-emerald-500/10 dark:hover:shadow-emerald-500/5 hover:bg-gradient-to-br hover:from-white hover:to-emerald-50/5 dark:hover:from-slate-900 dark:hover:to-emerald-950/10 card-bounce-transition transform hover:-translate-y-3 flex flex-col justify-between min-h-[220px] h-full"
+                  className="group relative p-6 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-3xl hover:border-emerald-500 dark:hover:border-emerald-500 cursor-pointer shadow-sm hover:shadow-emerald-500/10 dark:hover:shadow-emerald-500/5 hover:bg-gradient-to-br hover:from-white hover:to-emerald-50/5 dark:hover:from-slate-900 dark:hover:to-emerald-950/10 card-bounce-transition transform hover:-translate-y-3 flex flex-col justify-between min-h-[220px] h-full"
                 >
                   <div className="space-y-3 text-left">
                     <div className="p-3 bg-emerald-500/10 text-emerald-500 rounded-2xl w-fit group-hover:scale-110 group-hover:rotate-6 transition-all duration-300">
                       <HelpCircle className="w-7 h-7" />
                     </div>
-                    <h3 className="text-lg font-bold text-slate-900 dark:text-white group-hover:text-emerald-650 dark:group-hover:text-emerald-400 transition-colors">
+                    <h3 className="text-lg font-bold text-slate-900 dark:text-white group-hover:text-emerald-600 dark:group-hover:text-emerald-400 transition-colors">
                       Quiz Practices
                     </h3>
                     <p className="text-xs text-slate-500 dark:text-slate-400 leading-relaxed">
@@ -902,13 +1481,13 @@ const Dashboard = ({ onStartSession, onViewReport, onLogout }) => {
               <div className="animate-slide-up delay-400">
                 <div 
                   onClick={() => setActiveModule('hr-prep')}
-                  className="group relative p-6 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-850 rounded-3xl hover:border-pink-500 dark:hover:border-pink-500 cursor-pointer shadow-sm hover:shadow-pink-500/10 dark:hover:shadow-pink-500/5 hover:bg-gradient-to-br hover:from-white hover:to-pink-50/5 dark:hover:from-slate-900 dark:hover:to-pink-950/10 card-bounce-transition transform hover:-translate-y-3 flex flex-col justify-between min-h-[220px] h-full"
+                  className="group relative p-6 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-3xl hover:border-pink-500 dark:hover:border-pink-500 cursor-pointer shadow-sm hover:shadow-pink-500/10 dark:hover:shadow-pink-500/5 hover:bg-gradient-to-br hover:from-white hover:to-pink-50/5 dark:hover:from-slate-900 dark:hover:to-pink-950/10 card-bounce-transition transform hover:-translate-y-3 flex flex-col justify-between min-h-[220px] h-full"
                 >
                   <div className="space-y-3 text-left">
                     <div className="p-3 bg-pink-500/10 text-pink-500 rounded-2xl w-fit group-hover:scale-110 group-hover:rotate-6 transition-all duration-300">
                       <User className="w-7 h-7" />
                     </div>
-                    <h3 className="text-lg font-bold text-slate-900 dark:text-white group-hover:text-pink-650 dark:group-hover:text-pink-400 transition-colors">
+                    <h3 className="text-lg font-bold text-slate-900 dark:text-white group-hover:text-pink-600 dark:group-hover:text-pink-400 transition-colors">
                       HR Questions Review
                     </h3>
                     <p className="text-xs text-slate-500 dark:text-slate-400 leading-relaxed">
@@ -925,7 +1504,7 @@ const Dashboard = ({ onStartSession, onViewReport, onLogout }) => {
               <div className="animate-slide-up delay-500">
                 <div 
                   onClick={() => { setActiveModule('coding-practice'); setSelectedCodingQuestion(null); }}
-                  className="group relative p-6 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-850 rounded-3xl hover:border-amber-500 dark:hover:border-amber-500 cursor-pointer shadow-sm hover:shadow-amber-500/10 dark:hover:shadow-amber-500/5 hover:bg-gradient-to-br hover:from-white hover:to-amber-50/5 dark:hover:from-slate-900 dark:hover:to-amber-950/10 card-bounce-transition transform hover:-translate-y-3 flex flex-col justify-between min-h-[220px] h-full"
+                  className="group relative p-6 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-3xl hover:border-amber-500 dark:hover:border-amber-500 cursor-pointer shadow-sm hover:shadow-amber-500/10 dark:hover:shadow-amber-500/5 hover:bg-gradient-to-br hover:from-white hover:to-amber-50/5 dark:hover:from-slate-900 dark:hover:to-amber-950/10 card-bounce-transition transform hover:-translate-y-3 flex flex-col justify-between min-h-[220px] h-full"
                 >
                   <div className="space-y-3 text-left">
                     <div className="p-3 bg-amber-500/10 text-amber-500 rounded-2xl w-fit group-hover:scale-110 group-hover:rotate-6 transition-all duration-300">
@@ -948,7 +1527,7 @@ const Dashboard = ({ onStartSession, onViewReport, onLogout }) => {
               <div className="animate-slide-up delay-[600ms]">
                 <div 
                   onClick={() => setActiveModule('recorded-vault')}
-                  className="group relative p-6 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-850 rounded-3xl hover:border-sky-500 dark:hover:border-sky-550 cursor-pointer shadow-sm hover:shadow-sky-500/10 dark:hover:shadow-sky-500/5 hover:bg-gradient-to-br hover:from-white hover:to-sky-50/5 dark:hover:from-slate-900 dark:hover:to-sky-950/10 card-bounce-transition transform hover:-translate-y-3 flex flex-col justify-between min-h-[220px] h-full"
+                  className="group relative p-6 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-3xl hover:border-sky-500 dark:hover:border-sky-550 cursor-pointer shadow-sm hover:shadow-sky-500/10 dark:hover:shadow-sky-500/5 hover:bg-gradient-to-br hover:from-white hover:to-sky-50/5 dark:hover:from-slate-900 dark:hover:to-sky-950/10 card-bounce-transition transform hover:-translate-y-3 flex flex-col justify-between min-h-[220px] h-full"
                 >
                   <div className="space-y-3 text-left">
                     <div className="p-3 bg-sky-500/10 text-sky-500 rounded-2xl w-fit group-hover:scale-110 group-hover:rotate-6 transition-all duration-300">
@@ -972,7 +1551,7 @@ const Dashboard = ({ onStartSession, onViewReport, onLogout }) => {
                 <div className="animate-slide-up delay-[700ms]">
                   <div 
                     onClick={() => setActiveModule('admin-panel')}
-                    className="group relative p-6 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-855 rounded-3xl hover:border-violet-500 dark:hover:border-violet-550 cursor-pointer shadow-sm hover:shadow-violet-500/10 dark:hover:shadow-violet-500/5 hover:bg-gradient-to-br hover:from-white hover:to-violet-50/5 dark:hover:from-slate-900 dark:hover:to-violet-955/10 card-bounce-transition transform hover:-translate-y-3 flex flex-col justify-between min-h-[220px] h-full"
+                    className="group relative p-6 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-3xl hover:border-violet-500 dark:hover:border-violet-500 cursor-pointer shadow-sm hover:shadow-violet-500/10 dark:hover:shadow-violet-500/5 hover:bg-gradient-to-br hover:from-white hover:to-violet-50/5 dark:hover:from-slate-900 dark:hover:to-violet-950/10 card-bounce-transition transform hover:-translate-y-3 flex flex-col justify-between min-h-[220px] h-full"
                   >
                     <div className="space-y-3 text-left">
                       <div className="p-3 bg-violet-500/10 text-violet-500 rounded-2xl w-fit group-hover:scale-110 group-hover:rotate-6 transition-all duration-300">
@@ -1023,7 +1602,7 @@ const Dashboard = ({ onStartSession, onViewReport, onLogout }) => {
                 </div>
 
                 {/* Resume Upload Panel */}
-                <div className="p-4 bg-slate-100/50 dark:bg-slate-950/80 border border-slate-200 dark:border-slate-850/80 rounded-2xl flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-4">
+                <div className="p-4 bg-slate-100/50 dark:bg-slate-950/80 border border-slate-200 dark:border-slate-800/80 rounded-2xl flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-4">
                   <div className="flex items-start sm:items-center gap-3">
                     <div className="p-2.5 bg-indigo-500/10 border border-indigo-500/20 rounded-xl text-indigo-500 dark:text-indigo-400 flex-shrink-0">
                       <UploadCloud className="w-5 h-5" />
@@ -1035,7 +1614,7 @@ const Dashboard = ({ onStartSession, onViewReport, onLogout }) => {
                   </div>
                   
                   <div className="flex-shrink-0">
-                    <label className="flex items-center justify-center gap-2 px-4 py-2.5 bg-white hover:bg-slate-50 dark:bg-slate-900 dark:hover:bg-slate-800 border border-slate-200 dark:border-slate-850 rounded-xl text-xs font-bold text-indigo-600 dark:text-indigo-300 hover:text-indigo-600 dark:hover:text-indigo-200 cursor-pointer transition-all active:scale-95 w-full sm:w-auto shadow-sm">
+                    <label className="flex items-center justify-center gap-2 px-4 py-2.5 bg-white hover:bg-slate-50 dark:bg-slate-900 dark:hover:bg-slate-800 border border-slate-200 dark:border-slate-800 rounded-xl text-xs font-bold text-indigo-600 dark:text-indigo-300 hover:text-indigo-600 dark:hover:text-indigo-200 cursor-pointer transition-all active:scale-95 w-full sm:w-auto shadow-sm">
                       <FileText className="w-4 h-4" />
                       {isParsingResume ? 'Parsing Resume...' : 'Upload PDF'}
                       <input
@@ -1187,7 +1766,7 @@ const Dashboard = ({ onStartSession, onViewReport, onLogout }) => {
                     onClick={() => setSidebarTab('history')}
                     className={`flex-1 py-1.5 text-xs font-bold rounded-lg transition-all ${
                       sidebarTab === 'history' 
-                        ? 'bg-indigo-650 text-white shadow-sm'
+                        ? 'bg-indigo-600 text-white shadow-sm'
                         : 'text-slate-500 hover:text-slate-900 dark:text-slate-400 dark:hover:text-white'
                     }`}
                   >
@@ -1198,7 +1777,7 @@ const Dashboard = ({ onStartSession, onViewReport, onLogout }) => {
                     onClick={() => setSidebarTab('analytics')}
                     className={`flex-1 py-1.5 text-xs font-bold rounded-lg transition-all ${
                       sidebarTab === 'analytics' 
-                        ? 'bg-indigo-650 text-white shadow-sm'
+                        ? 'bg-indigo-600 text-white shadow-sm'
                         : 'text-slate-500 hover:text-slate-900 dark:text-slate-400 dark:hover:text-white'
                     }`}
                   >
@@ -1221,7 +1800,7 @@ const Dashboard = ({ onStartSession, onViewReport, onLogout }) => {
                           <div
                             key={sess._id}
                             onClick={() => onViewReport(sess._id)}
-                            className="p-4 bg-white dark:bg-slate-950 border border-slate-200 dark:border-slate-850 hover:border-indigo-500 dark:hover:border-indigo-500/50 rounded-2xl cursor-pointer transition-all flex items-center justify-between group active:scale-98 shadow-sm text-left"
+                            className="p-4 bg-white dark:bg-slate-950 border border-slate-200 dark:border-slate-800 hover:border-indigo-500 dark:hover:border-indigo-500/50 rounded-2xl cursor-pointer transition-all flex items-center justify-between group active:scale-98 shadow-sm text-left"
                           >
                             <div className="space-y-1">
                               <div className="flex items-center gap-1.5">
@@ -1245,7 +1824,7 @@ const Dashboard = ({ onStartSession, onViewReport, onLogout }) => {
 
                             <div className="flex items-center gap-3">
                               <div className="text-right">
-                                <div className="text-[10px] text-slate-450 dark:text-slate-500">Score</div>
+                                <div className="text-[10px] text-slate-400 dark:text-slate-500">Score</div>
                                 <div className="font-extrabold text-sm text-indigo-600 dark:text-indigo-400">
                                   {sess.status === 'ongoing' ? 'Ongoing' : `${sess.totalScore}/10`}
                                 </div>
@@ -1270,7 +1849,7 @@ const Dashboard = ({ onStartSession, onViewReport, onLogout }) => {
                             <div className="flex items-center gap-1.5 text-xs text-slate-500 dark:text-slate-400 font-bold uppercase tracking-wider">
                               <TrendingUp className="w-4 h-4 text-indigo-500 dark:text-indigo-400" /> Score Progression
                             </div>
-                            <div className="h-44 bg-white dark:bg-slate-950 border border-slate-200 dark:border-slate-850 rounded-2xl p-3 shadow-sm">
+                            <div className="h-44 bg-white dark:bg-slate-950 border border-slate-200 dark:border-slate-800 rounded-2xl p-3 shadow-sm">
                               <ResponsiveContainer width="100%" height="100%">
                                 <LineChart data={history.filter(s => s.status !== 'ongoing').reverse().map((s, i) => ({ name: `S${i+1}`, Score: s.totalScore }))}>
                                   <CartesianGrid strokeDasharray="3 3" stroke={theme === 'dark' ? '#1e293b' : '#e2e8f0'} />
@@ -1288,7 +1867,7 @@ const Dashboard = ({ onStartSession, onViewReport, onLogout }) => {
                             <div className="flex items-center gap-1.5 text-xs text-slate-500 dark:text-slate-400 font-bold uppercase tracking-wider">
                               <BarChart3 className="w-4 h-4 text-red-500 dark:text-red-400" /> Proctoring Integrity
                             </div>
-                            <div className="h-44 bg-white dark:bg-slate-950 border border-slate-200 dark:border-slate-850 rounded-2xl p-3 shadow-sm">
+                            <div className="h-44 bg-white dark:bg-slate-950 border border-slate-200 dark:border-slate-800 rounded-2xl p-3 shadow-sm">
                               <ResponsiveContainer width="100%" height="100%">
                                 <ReBarChart data={history.filter(s => s.status !== 'ongoing').reverse().map((s, i) => ({ name: `S${i+1}`, Warnings: s.tabSwitches || 0 }))}>
                                   <CartesianGrid strokeDasharray="3 3" stroke={theme === 'dark' ? '#1e293b' : '#e2e8f0'} />
@@ -1325,7 +1904,7 @@ const Dashboard = ({ onStartSession, onViewReport, onLogout }) => {
 
             {/* Topic Selection Screen */}
             {!selectedQuizTopic ? (
-              <div className="p-6 md:p-8 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-850 rounded-3xl shadow-sm space-y-6">
+              <div className="p-6 md:p-8 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-3xl shadow-sm space-y-6">
                 <div className="text-left">
                   <h2 className="text-2xl font-bold text-slate-900 dark:text-white">Technical Quiz Practice</h2>
                   <p className="text-xs sm:text-sm text-slate-500 dark:text-slate-400">Select a topic below to start a 5-question multiple choice assessment.</p>
@@ -1379,20 +1958,29 @@ const Dashboard = ({ onStartSession, onViewReport, onLogout }) => {
               </div>
             ) : (
               /* Active Quiz Player */
-              <div className="p-6 md:p-8 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-850 rounded-3xl shadow-sm space-y-6 max-w-3xl mx-auto">
+              <div className="p-6 md:p-8 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-3xl shadow-sm space-y-6 max-w-3xl mx-auto">
                 {/* Header progress info */}
-                <div className="flex justify-between items-center pb-4 border-b border-slate-105 dark:border-slate-850">
+                <div className="flex justify-between items-center pb-4 border-b border-slate-100 dark:border-slate-800">
                   <div className="text-left">
                     <span className="text-xs font-bold text-emerald-600 dark:text-emerald-400 uppercase tracking-wider">
                       Topic: {selectedQuizTopic.toUpperCase()}
                     </span>
-                    <h3 className="text-lg font-bold text-slate-850 dark:text-white">Question {currentQuizIdx + 1} of 5</h3>
+                    <h3 className="text-lg font-bold text-slate-800 dark:text-white">Question {currentQuizIdx + 1} of 5</h3>
                   </div>
-                  <span className="text-xs font-semibold text-slate-400">Score: {quizScore} / {currentQuizIdx + (isQuizAnswerSubmitted ? 1 : 0)}</span>
+                  <div className="flex items-center gap-3">
+                    <button 
+                      onClick={() => startQuiz(selectedQuizTopic)}
+                      title="Refresh & Randomize Questions"
+                      className="p-1.5 rounded-lg bg-slate-50 dark:bg-slate-950 border border-slate-200 dark:border-slate-800 hover:bg-slate-100 dark:hover:bg-slate-900 transition-all text-slate-500 dark:text-slate-400 hover:text-emerald-600 dark:hover:text-emerald-400 flex items-center justify-center shadow-sm"
+                    >
+                      <RefreshCw className="w-3.5 h-3.5 animate-hover-spin" />
+                    </button>
+                    <span className="text-xs font-semibold text-slate-400">Score: {quizScore} / {currentQuizIdx + (isQuizAnswerSubmitted ? 1 : 0)}</span>
+                  </div>
                 </div>
 
                 {/* Progress Bar */}
-                <div className="w-full bg-slate-100 dark:bg-slate-850 h-1.5 rounded-full overflow-hidden">
+                <div className="w-full bg-slate-100 dark:bg-slate-800 h-1.5 rounded-full overflow-hidden">
                   <div 
                     className="bg-emerald-500 h-1.5 rounded-full transition-all duration-300"
                     style={{ width: `${((currentQuizIdx + 1) / 5) * 100}%` }}
@@ -1412,7 +2000,7 @@ const Dashboard = ({ onStartSession, onViewReport, onLogout }) => {
 
                     <div className="p-4 bg-slate-50 dark:bg-slate-950/50 rounded-2xl max-w-sm mx-auto border border-slate-100 dark:border-slate-900">
                       <span className="text-xs font-bold text-slate-400 uppercase">Assessment Result</span>
-                      <div className="text-3xl font-black text-slate-850 dark:text-white mt-1">
+                      <div className="text-3xl font-black text-slate-800 dark:text-white mt-1">
                         {((quizScore / 5) * 100).toFixed(0)}%
                       </div>
                       <p className="text-xs text-slate-500 mt-2">
@@ -1429,7 +2017,7 @@ const Dashboard = ({ onStartSession, onViewReport, onLogout }) => {
                       </button>
                       <button 
                         onClick={() => setSelectedQuizTopic(null)}
-                        className="px-6 py-2.5 bg-slate-100 hover:bg-slate-200 dark:bg-slate-855 dark:hover:bg-slate-800 border border-slate-200 dark:border-slate-800 rounded-xl text-xs font-bold transition-all active:scale-95"
+                        className="px-6 py-2.5 bg-slate-100 hover:bg-slate-200 dark:bg-slate-800 dark:hover:bg-slate-800 border border-slate-200 dark:border-slate-800 rounded-xl text-xs font-bold transition-all active:scale-95"
                       >
                         Choose Another Topic
                       </button>
@@ -1439,14 +2027,14 @@ const Dashboard = ({ onStartSession, onViewReport, onLogout }) => {
                   /* Normal Question Cards */
                   <div className="space-y-6">
                     <h4 className="text-base font-bold text-slate-900 dark:text-white leading-relaxed text-left">
-                      {QUIZ_DATA[selectedQuizTopic][currentQuizIdx].q}
+                      {activeQuizQuestions[currentQuizIdx]?.q}
                     </h4>
 
                     {/* MCQ List Options */}
                     <div className="space-y-3">
-                      {QUIZ_DATA[selectedQuizTopic][currentQuizIdx].options.map((opt, idx) => {
+                      {activeQuizQuestions[currentQuizIdx]?.options.map((opt, idx) => {
                         const isSelected = selectedQuizOption === idx;
-                        const isAnswerKey = idx === QUIZ_DATA[selectedQuizTopic][currentQuizIdx].answer;
+                        const isAnswerKey = idx === activeQuizQuestions[currentQuizIdx]?.answer;
                         
                         let btnStyle = "border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-950 hover:bg-slate-50 dark:hover:bg-slate-900/60";
                         
@@ -1477,26 +2065,26 @@ const Dashboard = ({ onStartSession, onViewReport, onLogout }) => {
 
                     {/* Explanation box after submit */}
                     {isQuizAnswerSubmitted && (
-                      <div className="p-4 bg-indigo-500/5 border border-indigo-500/10 rounded-2xl text-xs text-left text-indigo-850 dark:text-indigo-300 space-y-1 animate-fade-in">
+                      <div className="p-4 bg-indigo-500/5 border border-indigo-500/10 rounded-2xl text-xs text-left text-indigo-900 dark:text-indigo-300 space-y-1 animate-fade-in">
                         <span className="font-extrabold uppercase tracking-wider block text-[10px]">Explanation:</span>
-                        <p className="leading-relaxed">{QUIZ_DATA[selectedQuizTopic][currentQuizIdx].explain}</p>
+                        <p className="leading-relaxed">{activeQuizQuestions[currentQuizIdx]?.explain}</p>
                       </div>
                     )}
 
                     {/* Submit / Next Button */}
-                    <div className="flex justify-end pt-4 border-t border-slate-100 dark:border-slate-850">
+                    <div className="flex justify-end pt-4 border-t border-slate-100 dark:border-slate-800">
                       {!isQuizAnswerSubmitted ? (
                         <button
                           onClick={handleSubmitQuizAnswer}
                           disabled={selectedQuizOption === null}
-                          className="px-6 py-2.5 bg-indigo-600 hover:bg-indigo-550 text-white rounded-xl text-xs font-bold transition-all disabled:opacity-40 disabled:cursor-not-allowed shadow-md shadow-indigo-600/10"
+                          className="px-6 py-2.5 bg-indigo-600 hover:bg-indigo-500 text-white rounded-xl text-xs font-bold transition-all disabled:opacity-40 disabled:cursor-not-allowed shadow-md shadow-indigo-600/10"
                         >
                           Submit Answer
                         </button>
                       ) : (
                         <button
                           onClick={handleNextQuizQuestion}
-                          className="px-6 py-2.5 bg-emerald-600 hover:bg-emerald-550 text-white rounded-xl text-xs font-bold transition-all shadow-md shadow-emerald-600/10"
+                          className="px-6 py-2.5 bg-emerald-600 hover:bg-emerald-500 text-white rounded-xl text-xs font-bold transition-all shadow-md shadow-emerald-600/10"
                         >
                           {currentQuizIdx === 4 ? "Finish Quiz" : "Next Question"}
                         </button>
@@ -1522,7 +2110,7 @@ const Dashboard = ({ onStartSession, onViewReport, onLogout }) => {
               <span className="text-xs font-bold text-slate-400">Workspace / HR Preparation</span>
             </div>
 
-            <div className="p-6 md:p-8 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-850 rounded-3xl shadow-sm space-y-6">
+            <div className="p-6 md:p-8 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-3xl shadow-sm space-y-6">
               <div className="text-left">
                 <h2 className="text-2xl font-bold text-slate-900 dark:text-white">HR Interview Coach Vault</h2>
                 <p className="text-xs sm:text-sm text-slate-500 dark:text-slate-400">Prepare standard behavioral questions that recruiters ask to test alignment, problem solving, and confidence.</p>
@@ -1534,14 +2122,14 @@ const Dashboard = ({ onStartSession, onViewReport, onLogout }) => {
                   return (
                     <div 
                       key={item.id}
-                      className="border border-slate-200 dark:border-slate-850 rounded-2xl overflow-hidden bg-slate-50/50 dark:bg-slate-950/20"
+                      className="border border-slate-200 dark:border-slate-800 rounded-2xl overflow-hidden bg-slate-50/50 dark:bg-slate-950/20"
                     >
                       <div 
                         onClick={() => setExpandedHRIdx(isExpanded ? null : idx)}
                         className="p-4 sm:p-5 flex justify-between items-center cursor-pointer select-none bg-white dark:bg-slate-900 hover:bg-slate-50 dark:hover:bg-slate-900/60 transition-colors"
                       >
                         <div className="flex items-center gap-3">
-                          <span className="w-6 h-6 rounded-lg bg-pink-500/10 text-pink-505 font-extrabold flex items-center justify-center text-xs">
+                          <span className="w-6 h-6 rounded-lg bg-pink-500/10 text-pink-500 font-extrabold flex items-center justify-center text-xs">
                             0{item.id}
                           </span>
                           <h4 className="font-bold text-slate-800 dark:text-white text-xs sm:text-sm">{item.q}</h4>
@@ -1550,7 +2138,7 @@ const Dashboard = ({ onStartSession, onViewReport, onLogout }) => {
                       </div>
 
                       {isExpanded && (
-                        <div className="p-5 border-t border-slate-200 dark:border-slate-850 bg-white/45 dark:bg-slate-950/40 text-xs sm:text-sm space-y-4 animate-fade-in text-left">
+                        <div className="p-5 border-t border-slate-200 dark:border-slate-800 bg-white/45 dark:bg-slate-950/40 text-xs sm:text-sm space-y-4 animate-fade-in text-left">
                           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                             <div className="space-y-2">
                               <h5 className="font-bold text-slate-700 dark:text-slate-350 uppercase tracking-wider text-[10px] text-pink-600 dark:text-pink-400">Recruiter's Perspective</h5>
@@ -1564,14 +2152,14 @@ const Dashboard = ({ onStartSession, onViewReport, onLogout }) => {
                             </div>
                           </div>
 
-                          <div className="pt-3 border-t border-slate-100 dark:border-slate-850 space-y-1.5">
-                            <h5 className="font-bold text-slate-700 dark:text-slate-350 uppercase tracking-wider text-[10px] text-pink-650 dark:text-pink-400">Ideal Response Template</h5>
-                            <div className="p-4 bg-slate-100/50 dark:bg-slate-900/60 border border-slate-200/60 dark:border-slate-850 rounded-xl leading-relaxed text-slate-800 dark:text-slate-300 font-medium italic">
+                          <div className="pt-3 border-t border-slate-100 dark:border-slate-800 space-y-1.5">
+                            <h5 className="font-bold text-slate-700 dark:text-slate-350 uppercase tracking-wider text-[10px] text-pink-600 dark:text-pink-400">Ideal Response Template</h5>
+                            <div className="p-4 bg-slate-100/50 dark:bg-slate-900/60 border border-slate-200/60 dark:border-slate-800 rounded-xl leading-relaxed text-slate-800 dark:text-slate-300 font-medium italic">
                               "{item.response}"
                             </div>
                           </div>
 
-                          <div className="pt-2 text-xs text-slate-550 dark:text-slate-450 flex items-start gap-2">
+                          <div className="pt-2 text-xs text-slate-500 dark:text-slate-400 flex items-start gap-2">
                             <span className="font-extrabold uppercase text-[10px] text-indigo-500 bg-indigo-500/10 px-1 rounded flex-shrink-0 mt-0.5">Tip</span>
                             <p className="italic leading-relaxed">{item.tips}</p>
                           </div>
@@ -1600,8 +2188,8 @@ const Dashboard = ({ onStartSession, onViewReport, onLogout }) => {
 
             {!selectedCodingQuestion ? (
               /* Company Selector & Question Grid List */
-              <div className="p-6 md:p-8 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-850 rounded-3xl shadow-sm space-y-6">
-                <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 border-b border-slate-100 dark:border-slate-850 pb-4">
+              <div className="p-6 md:p-8 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-3xl shadow-sm space-y-6">
+                <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 border-b border-slate-100 dark:border-slate-800 pb-4">
                   <div className="text-left">
                     <h2 className="text-2xl font-bold text-slate-900 dark:text-white">Target Company Coding Board</h2>
                     <p className="text-xs sm:text-sm text-slate-500 dark:text-slate-400">Select a tech firm below to practice their standard online coding assessment questions.</p>
@@ -1645,14 +2233,14 @@ const Dashboard = ({ onStartSession, onViewReport, onLogout }) => {
                           </span>
                           <span className="text-[10px] font-extrabold text-slate-400">Target: {selectedCodingCompany}</span>
                         </div>
-                        <h4 className="font-extrabold text-slate-850 dark:text-white text-base group-hover:text-amber-550 dark:group-hover:text-amber-400 transition-colors">{q.title}</h4>
+                        <h4 className="font-extrabold text-slate-800 dark:text-white text-base group-hover:text-amber-550 dark:group-hover:text-amber-400 transition-colors">{q.title}</h4>
                         <p className="text-xs text-slate-500 dark:text-slate-400 line-clamp-2 leading-relaxed">
                           {q.desc}
                         </p>
                       </div>
-                      <div className="mt-4 pt-3 border-t border-slate-100 dark:border-slate-850/80 flex justify-between items-center text-xs font-bold text-slate-450">
+                      <div className="mt-4 pt-3 border-t border-slate-100 dark:border-slate-800/80 flex justify-between items-center text-xs font-bold text-slate-400">
                         <span>JavaScript • Python • C++ • Java</span>
-                        <span className="text-indigo-650 dark:text-indigo-400 group-hover:translate-x-1 transition-transform">Solve →</span>
+                        <span className="text-indigo-600 dark:text-indigo-400 group-hover:translate-x-1 transition-transform">Solve →</span>
                       </div>
                     </div>
                   ))}
@@ -1662,9 +2250,9 @@ const Dashboard = ({ onStartSession, onViewReport, onLogout }) => {
               /* Split Workspace Code Editor Sandbox */
               <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 min-h-[580px] lg:col-span-3">
                 {/* Left Side: Question Details */}
-                <div className="p-6 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-850 rounded-3xl shadow-sm flex flex-col justify-between text-left">
+                <div className="p-6 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-3xl shadow-sm flex flex-col justify-between text-left">
                   <div className="space-y-4">
-                    <div className="flex justify-between items-center border-b border-slate-100 dark:border-slate-850 pb-3">
+                    <div className="flex justify-between items-center border-b border-slate-100 dark:border-slate-800 pb-3">
                       <button 
                         onClick={() => setSelectedCodingQuestion(null)}
                         className="flex items-center gap-1 text-xs font-bold text-slate-500 hover:text-slate-900 dark:hover:text-white"
@@ -1686,15 +2274,15 @@ const Dashboard = ({ onStartSession, onViewReport, onLogout }) => {
                       {selectedCodingQuestion.desc}
                     </div>
 
-                    <div className="p-4 bg-slate-50 dark:bg-slate-950/65 border border-slate-150 dark:border-slate-850 rounded-2xl space-y-3">
+                    <div className="p-4 bg-slate-50 dark:bg-slate-950/65 border border-slate-150 dark:border-slate-800 rounded-2xl space-y-3">
                       <div>
-                        <span className="text-[10px] font-extrabold uppercase text-slate-450 tracking-wider">Example Input</span>
+                        <span className="text-[10px] font-extrabold uppercase text-slate-400 tracking-wider">Example Input</span>
                         <pre className="text-xs text-slate-650 dark:text-slate-300 font-mono mt-1 whitespace-pre-wrap leading-normal">
                           {selectedCodingQuestion.input}
                         </pre>
                       </div>
-                      <div className="pt-2 border-t border-slate-200/40 dark:border-slate-850">
-                        <span className="text-[10px] font-extrabold uppercase text-slate-450 tracking-wider">Expected Output</span>
+                      <div className="pt-2 border-t border-slate-200/40 dark:border-slate-800">
+                        <span className="text-[10px] font-extrabold uppercase text-slate-400 tracking-wider">Expected Output</span>
                         <pre className="text-xs text-slate-650 dark:text-slate-300 font-mono mt-1">
                           {selectedCodingQuestion.output}
                         </pre>
@@ -1704,7 +2292,7 @@ const Dashboard = ({ onStartSession, onViewReport, onLogout }) => {
 
                   {/* Test Case Status Overlay */}
                   {codingTestCasesResults.length > 0 && (
-                    <div className="mt-6 border-t border-slate-100 dark:border-slate-850 pt-4 space-y-3">
+                    <div className="mt-6 border-t border-slate-100 dark:border-slate-800 pt-4 space-y-3">
                       <h5 className="font-bold text-slate-700 dark:text-slate-350 uppercase tracking-wider text-[10px]">Test Case Statuses</h5>
                       <div className="space-y-2">
                         {codingTestCasesResults.map((tc, idx) => (
@@ -1732,7 +2320,7 @@ const Dashboard = ({ onStartSession, onViewReport, onLogout }) => {
                 </div>
 
                 {/* Right Side: Monaco Editor Sandbox */}
-                <div className="p-4 bg-slate-900 border border-slate-850 rounded-3xl shadow-xl flex flex-col justify-between min-h-[580px] text-white text-left">
+                <div className="p-4 bg-slate-900 border border-slate-800 rounded-3xl shadow-xl flex flex-col justify-between min-h-[580px] text-white text-left">
                   <div className="space-y-4 flex-grow flex flex-col">
                     {/* Compiler controls */}
                     <div className="flex justify-between items-center border-b border-slate-800 pb-3">
@@ -1780,7 +2368,7 @@ const Dashboard = ({ onStartSession, onViewReport, onLogout }) => {
                       <span>Local Runner</span>
                     </div>
                     
-                    <pre className="p-3 bg-slate-950 border border-slate-850 rounded-xl font-mono text-xs text-slate-300 min-h-[80px] whitespace-pre-wrap overflow-y-auto max-h-[120px]">
+                    <pre className="p-3 bg-slate-950 border border-slate-800 rounded-xl font-mono text-xs text-slate-300 min-h-[80px] whitespace-pre-wrap overflow-y-auto max-h-[120px]">
                       {codingConsoleOutput || "Console is idle. Write code and hit 'Run Code'."}
                     </pre>
 
@@ -1819,7 +2407,7 @@ const Dashboard = ({ onStartSession, onViewReport, onLogout }) => {
             <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 text-left">
               {/* Left side: charts */}
               <div className="lg:col-span-1 space-y-6">
-                <div className="p-5 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-855 rounded-3xl shadow-sm space-y-6">
+                <div className="p-5 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-3xl shadow-sm space-y-6">
                   <div>
                     <h3 className="text-lg font-bold text-slate-900 dark:text-white">Performance Analytics</h3>
                     <p className="text-xs text-slate-500 dark:text-slate-400">Evaluate score progress and tab check statuses.</p>
@@ -1837,7 +2425,7 @@ const Dashboard = ({ onStartSession, onViewReport, onLogout }) => {
                         <div className="flex items-center gap-1.5 text-xs text-slate-500 dark:text-slate-400 font-bold uppercase tracking-wider">
                           <TrendingUp className="w-4 h-4 text-indigo-500 dark:text-indigo-400" /> Score Progression
                         </div>
-                        <div className="h-40 bg-slate-50 dark:bg-slate-950 border border-slate-200 dark:border-slate-850 rounded-2xl p-2 shadow-sm">
+                        <div className="h-40 bg-slate-50 dark:bg-slate-950 border border-slate-200 dark:border-slate-800 rounded-2xl p-2 shadow-sm">
                           <ResponsiveContainer width="100%" height="100%">
                             <LineChart data={history.filter(s => s.status !== 'ongoing').reverse().map((s, i) => ({ name: `S${i+1}`, Score: s.totalScore }))}>
                               <CartesianGrid strokeDasharray="3 3" stroke={theme === 'dark' ? '#1e293b' : '#e2e8f0'} />
@@ -1855,7 +2443,7 @@ const Dashboard = ({ onStartSession, onViewReport, onLogout }) => {
                         <div className="flex items-center gap-1.5 text-xs text-slate-500 dark:text-slate-400 font-bold uppercase tracking-wider">
                           <BarChart3 className="w-4 h-4 text-red-500 dark:text-red-400" /> Proctoring Integrity
                         </div>
-                        <div className="h-40 bg-slate-50 dark:bg-slate-955 border border-slate-200 dark:border-slate-850 rounded-2xl p-2 shadow-sm">
+                        <div className="h-40 bg-slate-50 dark:bg-slate-950 border border-slate-200 dark:border-slate-800 rounded-2xl p-2 shadow-sm">
                           <ResponsiveContainer width="100%" height="100%">
                             <ReBarChart data={history.filter(s => s.status !== 'ongoing').reverse().map((s, i) => ({ name: `S${i+1}`, Warnings: s.tabSwitches || 0 }))}>
                               <CartesianGrid strokeDasharray="3 3" stroke={theme === 'dark' ? '#1e293b' : '#e2e8f0'} />
@@ -1874,7 +2462,7 @@ const Dashboard = ({ onStartSession, onViewReport, onLogout }) => {
 
               {/* Right side: history list */}
               <div className="lg:col-span-2 space-y-6">
-                <div className="p-5 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-850 rounded-3xl shadow-sm space-y-4">
+                <div className="p-5 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-3xl shadow-sm space-y-4">
                   <div>
                     <h3 className="text-lg font-bold text-slate-900 dark:text-white">Interview Transcripts & Reports</h3>
                     <p className="text-xs text-slate-500 dark:text-slate-400">Click a record below to review detailed Q&A feedback transcripts and roadmaps.</p>
@@ -1893,7 +2481,7 @@ const Dashboard = ({ onStartSession, onViewReport, onLogout }) => {
                         <div
                           key={sess._id}
                           onClick={() => onViewReport(sess._id)}
-                          className="p-4 bg-slate-50/50 dark:bg-slate-955/40 border border-slate-200 dark:border-slate-800 hover:border-indigo-500 dark:hover:border-indigo-500/50 rounded-2xl cursor-pointer hover:bg-white dark:hover:bg-slate-950 transition-all flex items-center justify-between group active:scale-98 shadow-sm"
+                          className="p-4 bg-slate-50/50 dark:bg-slate-950/40 border border-slate-200 dark:border-slate-800 hover:border-indigo-500 dark:hover:border-indigo-500/50 rounded-2xl cursor-pointer hover:bg-white dark:hover:bg-slate-950 transition-all flex items-center justify-between group active:scale-98 shadow-sm"
                         >
                           <div className="space-y-1 text-left">
                             <div className="flex items-center gap-2">
@@ -1906,7 +2494,7 @@ const Dashboard = ({ onStartSession, onViewReport, onLogout }) => {
                                 </span>
                               )}
                             </div>
-                            <div className="flex items-center gap-3 text-slate-505 text-[10px]">
+                            <div className="flex items-center gap-3 text-slate-500 text-[10px]">
                               <span className="flex items-center gap-1">
                                 <Calendar className="w-3.5 h-3.5" /> {new Date(sess.createdAt).toLocaleDateString()}
                               </span>
@@ -1919,12 +2507,12 @@ const Dashboard = ({ onStartSession, onViewReport, onLogout }) => {
 
                           <div className="flex items-center gap-3">
                             <div className="text-right">
-                              <div className="text-[10px] text-slate-450 dark:text-slate-500">Score</div>
+                              <div className="text-[10px] text-slate-400 dark:text-slate-500">Score</div>
                               <div className="font-black text-sm text-indigo-600 dark:text-indigo-400">
                                 {sess.status === 'ongoing' ? 'Ongoing' : `${sess.totalScore}/10`}
                               </div>
                             </div>
-                            <ChevronRight className="w-4 h-4 text-slate-400 group-hover:text-indigo-650 dark:group-hover:text-indigo-400 transition-colors" />
+                            <ChevronRight className="w-4 h-4 text-slate-400 group-hover:text-indigo-600 dark:group-hover:text-indigo-400 transition-colors" />
                           </div>
                         </div>
                       ))
@@ -1949,13 +2537,13 @@ const Dashboard = ({ onStartSession, onViewReport, onLogout }) => {
               <span className="text-xs font-bold text-slate-400">Workspace / Admin Panel</span>
             </div>
 
-            <div className="p-6 md:p-8 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-855 rounded-3xl shadow-sm space-y-6 text-left animate-fade-in">
-              <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 pb-4 border-b border-slate-100 dark:border-slate-850">
+            <div className="p-6 md:p-8 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-3xl shadow-sm space-y-6 text-left animate-fade-in">
+              <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 pb-4 border-b border-slate-100 dark:border-slate-800">
                 <div>
                   <h2 className="text-2xl font-bold text-slate-900 dark:text-white flex items-center gap-2">
                     <ShieldAlert className="w-6 h-6 text-violet-500" /> Developer Admin Panel
                   </h2>
-                  <p className="text-xs sm:text-sm text-slate-505 dark:text-slate-400">
+                  <p className="text-xs sm:text-sm text-slate-500 dark:text-slate-400">
                     Monitor user registrations, activity volumes, and overall mock interview metrics.
                   </p>
                 </div>
@@ -1982,15 +2570,15 @@ const Dashboard = ({ onStartSession, onViewReport, onLogout }) => {
                   <span className="text-xs text-slate-400 font-medium animate-pulse">Fetching developer dashboard metrics...</span>
                 </div>
               ) : adminUsers.length === 0 ? (
-                <div className="text-center py-16 border border-dashed border-slate-200 dark:border-slate-850 rounded-2xl flex flex-col items-center justify-center gap-2">
-                  <Users className="w-10 h-10 text-slate-450 dark:text-slate-700" />
+                <div className="text-center py-16 border border-dashed border-slate-200 dark:border-slate-800 rounded-2xl flex flex-col items-center justify-center gap-2">
+                  <Users className="w-10 h-10 text-slate-400 dark:text-slate-700" />
                   <span className="text-xs text-slate-500">No users found in the system yet.</span>
                 </div>
               ) : (
-                <div className="overflow-x-auto rounded-2xl border border-slate-200 dark:border-slate-850 shadow-sm">
+                <div className="overflow-x-auto rounded-2xl border border-slate-200 dark:border-slate-800 shadow-sm">
                   <table className="w-full text-left border-collapse text-xs sm:text-sm">
                     <thead>
-                      <tr className="bg-slate-50 dark:bg-slate-950 text-slate-550 dark:text-slate-400 font-bold border-b border-slate-205 dark:border-slate-850">
+                      <tr className="bg-slate-50 dark:bg-slate-950 text-slate-500 dark:text-slate-400 font-bold border-b border-slate-200 dark:border-slate-800">
                         <th className="p-4">Candidate Profile</th>
                         <th className="p-4">Contact Info</th>
                         <th className="p-4">Role Status</th>
@@ -1998,7 +2586,7 @@ const Dashboard = ({ onStartSession, onViewReport, onLogout }) => {
                         <th className="p-4">Registered Date</th>
                       </tr>
                     </thead>
-                    <tbody className="divide-y divide-slate-100 dark:divide-slate-850 bg-white dark:bg-slate-900">
+                    <tbody className="divide-y divide-slate-100 dark:divide-slate-800 bg-white dark:bg-slate-900">
                       {adminUsers.map((u) => (
                         <tr 
                           key={u._id} 
@@ -2015,14 +2603,14 @@ const Dashboard = ({ onStartSession, onViewReport, onLogout }) => {
                           </td>
                           <td className="p-4">
                             <div className="flex items-center gap-1.5 text-slate-750 dark:text-slate-300">
-                              <Mail className="w-3.5 h-3.5 text-slate-450" />
+                              <Mail className="w-3.5 h-3.5 text-slate-400" />
                               <span>{u.email}</span>
                             </div>
                           </td>
                           <td className="p-4">
                             <span className={`inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full text-[10px] font-bold tracking-wide uppercase ${
                               u.role === 'admin' 
-                                ? 'bg-violet-550/10 text-violet-600 dark:text-violet-400 border border-violet-500/20' 
+                                ? 'bg-violet-500/10 text-violet-600 dark:text-violet-400 border border-violet-500/20' 
                                 : 'bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-400 border border-slate-200 dark:border-slate-750'
                             }`}>
                               {u.role === 'admin' ? 'Developer / Admin' : 'Candidate'}
@@ -2031,10 +2619,10 @@ const Dashboard = ({ onStartSession, onViewReport, onLogout }) => {
                           <td className="p-4">
                             <div className="flex items-center gap-2">
                               <span className="font-extrabold text-slate-900 dark:text-white">{u.interviewCount || 0}</span>
-                              <span className="text-[10px] text-slate-450">Interviews Started</span>
+                              <span className="text-[10px] text-slate-400">Interviews Started</span>
                             </div>
                           </td>
-                          <td className="p-4 text-slate-500 dark:text-slate-450">
+                          <td className="p-4 text-slate-500 dark:text-slate-400">
                             {new Date(u.createdAt).toLocaleDateString(undefined, {
                               year: 'numeric',
                               month: 'short',
