@@ -107,27 +107,36 @@ const LandingPage = ({ onEnterDashboard }) => {
   };
 
   return (
-    <div className="relative min-h-screen bg-slate-50 dark:bg-slate-950 overflow-hidden text-slate-900 dark:text-slate-100 flex flex-col justify-between transition-colors duration-300">
-      {/* Background Ambient Glows */}
-      <div className="absolute top-[-10%] left-[-10%] w-[500px] h-[500px] rounded-full bg-indigo-500/5 dark:bg-indigo-900/10 blur-[120px] ambient-glow" />
-      <div className="absolute bottom-[-10%] right-[-10%] w-[500px] h-[500px] rounded-full bg-purple-500/5 dark:bg-purple-900/10 blur-[120px] ambient-glow" />
+    <div className="relative min-h-screen bg-slate-50 dark:bg-black overflow-hidden text-slate-900 dark:text-slate-100 flex flex-col justify-between transition-colors duration-300">
+      {/* Background Ambient Glows & Spotlight */}
+      <div className="absolute top-0 left-0 w-full h-[600px] bg-[radial-gradient(ellipse_at_top_left,_var(--tw-gradient-stops))] from-slate-500/10 via-transparent to-transparent pointer-events-none dark:from-white/10" />
+      <div className="absolute bottom-[-10%] right-[-10%] w-[500px] h-[500px] rounded-full bg-slate-500/5 dark:bg-neutral-900/20 blur-[120px] ambient-glow" />
 
       {/* Navigation */}
-      <header className="relative z-10 max-w-7xl mx-auto w-full px-4 sm:px-6 md:px-8 py-4 sm:py-6 flex justify-between items-center border-b border-slate-200 dark:border-slate-900 bg-white/20 dark:bg-slate-950/20 backdrop-blur-sm">
+      <header className="relative z-10 max-w-7xl mx-auto w-full px-4 sm:px-6 md:px-8 py-4 sm:py-6 flex justify-between items-center border-b border-slate-200 dark:border-white/10 bg-white/20 dark:bg-black/20 backdrop-blur-sm">
         <div className="flex items-center gap-2">
-          <div className="p-2 bg-gradient-to-tr from-indigo-500 to-purple-500 rounded-lg shadow-md shadow-indigo-500/25">
-            <Sparkles className="w-5 h-5 sm:w-6 sm:h-6 text-white" />
+          <div className="p-2 bg-slate-900 dark:bg-white text-white dark:text-black rounded-lg shadow-sm border border-slate-200 dark:border-white/10">
+            <Sparkles className="w-5 h-5 sm:w-6 sm:h-6" />
           </div>
           <span className="font-black text-lg sm:text-xl tracking-tight text-slate-900 dark:text-white flex items-center gap-0.5">
-            Interview<span className="bg-gradient-to-r from-indigo-600 to-purple-600 dark:from-indigo-400 dark:to-purple-400 bg-clip-text text-transparent font-black">Hub</span>
+            Interview<span className="text-slate-900 dark:text-white font-black underline decoration-slate-400 dark:decoration-slate-600 underline-offset-4">Hub</span>
           </span>
         </div>
+
+        {/* Mock Navigation Menu Links from Image */}
+        <nav className="hidden md:flex items-center gap-8 text-sm font-medium text-slate-600 dark:text-slate-400">
+          <a href="#platform" className="hover:text-slate-900 dark:hover:text-white transition-colors">Platform</a>
+          <a href="#features" className="hover:text-slate-900 dark:hover:text-white transition-colors">Features</a>
+          <a href="#pricing" className="hover:text-slate-900 dark:hover:text-white transition-colors">Pricing</a>
+          <a href="#enterprise" className="hover:text-slate-900 dark:hover:text-white transition-colors">Enterprise</a>
+          <a href="#resources" className="hover:text-slate-900 dark:hover:text-white transition-colors">Resources</a>
+        </nav>
 
         <div className="flex items-center gap-3">
           {user ? (
             <button
               onClick={onEnterDashboard}
-              className="px-4 sm:px-5 py-2 sm:py-2.5 bg-gradient-to-r from-indigo-600 to-purple-600 hover:from-indigo-500 hover:to-purple-500 active:scale-95 hover:shadow-lg hover:shadow-indigo-500/20 transition-all rounded-xl font-semibold text-xs sm:text-sm flex items-center gap-1.5 sm:gap-2 text-white"
+              className="px-5 py-2.5 bg-slate-900 dark:bg-white text-white dark:text-black hover:bg-slate-800 dark:hover:bg-slate-100 active:scale-95 transition-all rounded-full font-semibold text-xs sm:text-sm flex items-center gap-1.5 sm:gap-2 border border-slate-800 dark:border-white shadow-sm"
             >
               Go to Dashboard <ArrowRight className="w-3.5 h-3.5 sm:w-4 sm:h-4" />
             </button>
@@ -135,13 +144,13 @@ const LandingPage = ({ onEnterDashboard }) => {
             <div className="flex items-center gap-2 sm:gap-4">
               <button
                 onClick={() => openAuth(true)}
-                className="px-3 sm:px-4 py-2 text-slate-600 hover:text-slate-950 dark:text-slate-350 dark:hover:text-white transition-all text-xs sm:text-sm font-semibold"
+                className="px-3 sm:px-4 py-2 text-slate-600 hover:text-slate-950 dark:text-slate-400 dark:hover:text-white transition-all text-xs sm:text-sm font-semibold"
               >
                 Log In
               </button>
               <button
                 onClick={() => openAuth(false)}
-                className="px-4 sm:px-5 py-2 sm:py-2.5 bg-gradient-to-r from-indigo-600 to-purple-600 hover:from-indigo-500 hover:to-purple-500 active:scale-95 hover:shadow-lg hover:shadow-indigo-500/20 transition-all rounded-xl font-semibold text-xs sm:text-sm text-white"
+                className="px-5 py-2.5 bg-slate-900 dark:bg-white text-white dark:text-black hover:bg-slate-800 dark:hover:bg-slate-100 active:scale-95 transition-all rounded-full font-semibold text-xs sm:text-sm border border-slate-800 dark:border-white shadow-sm"
               >
                 Get Started
               </button>
@@ -153,26 +162,28 @@ const LandingPage = ({ onEnterDashboard }) => {
 
       {/* Hero Section */}
       <main className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 md:px-8 py-8 sm:py-12 md:py-16 flex flex-col items-center justify-center text-center flex-grow">
-        <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-slate-100 dark:bg-slate-900 border border-slate-200 dark:border-slate-800 text-indigo-600 dark:text-indigo-400 text-xs font-semibold uppercase tracking-wider mb-6 sm:mb-8 shadow-sm">
+        <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-slate-100 dark:bg-neutral-900 border border-slate-300 dark:border-white/10 text-slate-800 dark:text-slate-200 text-xs font-bold uppercase tracking-wider mb-6 sm:mb-8 shadow-sm">
           <Sparkles className="w-3.5 h-3.5" /> Empowering Placement Preparation
         </div>
 
-        <h1 className="text-3xl sm:text-5xl md:text-6xl lg:text-7xl font-extrabold tracking-tight max-w-4xl leading-tight sm:leading-none">
-          Master Your Technical Interviews with{' '}
-          <span className="bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 dark:from-indigo-400 dark:via-purple-400 dark:to-pink-500 bg-clip-text text-transparent">
-            AI Precision
+        {/* Headline exact Match to Mockup */}
+        <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7.5xl font-extrabold tracking-tight max-w-4xl leading-none text-slate-900 dark:text-white">
+          Streamline Your Interview<br className="hidden sm:inline" />
+          <span className="bg-gradient-to-r from-slate-900 via-slate-600 to-slate-900 dark:from-white dark:via-slate-300 dark:to-slate-500 bg-clip-text text-transparent">
+            Process. Efficiently.
           </span>
         </h1>
 
-        <p className="mt-4 sm:mt-6 text-sm sm:text-base md:text-lg text-slate-600 dark:text-slate-400 max-w-2xl leading-relaxed">
-          Simulate realistic, company-specific mock interviews. Receive real-time scoring, code complexity profiling, behavioral analysis, and a personalized 5-day roadmap to crack top placements.
+        {/* Subtitle Match to Mockup */}
+        <p className="mt-6 text-sm sm:text-base md:text-lg text-slate-600 dark:text-slate-400 max-w-2xl leading-relaxed">
+          The ultimate platform for modern hiring candidates to manage, conduct, and analyze technical and behavioral interviews with Gemini AI.
         </p>
 
-        <div className="mt-8 sm:mt-10 flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center w-full sm:w-auto px-4">
+        <div className="mt-8 sm:mt-10 flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center w-full sm:w-auto px-4 z-20">
           {user ? (
             <button
               onClick={onEnterDashboard}
-              className="w-full sm:w-auto px-8 py-3.5 sm:py-4 bg-gradient-to-r from-indigo-600 to-purple-600 hover:from-indigo-500 hover:to-purple-500 active:scale-95 transition-all rounded-xl font-bold text-sm sm:text-base shadow-xl shadow-indigo-600/25 flex items-center justify-center gap-2 text-white"
+              className="w-full sm:w-auto px-8 py-3.5 bg-slate-900 dark:bg-white text-white dark:text-black hover:bg-slate-800 dark:hover:bg-slate-100 active:scale-95 transition-all rounded-full font-bold text-sm sm:text-base border border-slate-800 dark:border-white shadow-sm flex items-center justify-center gap-2"
             >
               Enter Dashboard <ArrowRight className="w-4 h-4 sm:w-5 sm:h-5" />
             </button>
@@ -180,13 +191,13 @@ const LandingPage = ({ onEnterDashboard }) => {
             <>
               <button
                 onClick={() => openAuth(false)}
-                className="w-full sm:w-auto px-8 py-3.5 sm:py-4 bg-gradient-to-r from-indigo-600 to-purple-600 hover:from-indigo-500 hover:to-purple-500 active:scale-95 transition-all rounded-xl font-bold text-sm sm:text-base shadow-xl shadow-indigo-600/25 text-white"
+                className="w-full sm:w-auto px-8 py-3.5 bg-slate-900 dark:bg-white text-white dark:text-black hover:bg-slate-800 dark:hover:bg-slate-100 active:scale-95 transition-all rounded-full font-bold text-sm sm:text-base border border-slate-800 dark:border-white shadow-md"
               >
                 Create Free Account
               </button>
               <button
                 onClick={() => openAuth(true)}
-                className="w-full sm:w-auto px-8 py-3.5 sm:py-4 bg-slate-100 hover:bg-slate-200 dark:bg-slate-900 dark:hover:bg-slate-850 active:scale-95 transition-all rounded-xl font-bold text-sm sm:text-base border border-slate-200 dark:border-slate-800 text-slate-900 dark:text-white"
+                className="w-full sm:w-auto px-8 py-3.5 bg-white dark:bg-black hover:bg-slate-100 dark:hover:bg-neutral-900 active:scale-95 transition-all rounded-full font-bold text-sm sm:text-base border border-slate-300 dark:border-white/25 text-slate-900 dark:text-white"
               >
                 Try Live Mock
               </button>
@@ -194,49 +205,122 @@ const LandingPage = ({ onEnterDashboard }) => {
           )}
         </div>
 
-        {/* Features grid */}
-        <div className="mt-16 sm:mt-24 grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8 w-full">
-          <div className="p-6 glass-panel glass-panel-hover rounded-2xl text-left">
-            <div className="w-12 h-12 rounded-xl bg-indigo-500/10 border border-indigo-500/20 flex items-center justify-center mb-5 text-indigo-500 dark:text-indigo-400">
-              <Terminal className="w-6 h-6" />
+        {/* Central Dashboard Mockup Card from Image */}
+        <div className="relative mt-16 w-full max-w-3xl aspect-[16/9.5] rounded-2xl border border-slate-200 dark:border-white/15 bg-white/80 dark:bg-black/60 backdrop-blur-md p-6 overflow-hidden shadow-2xl dark:shadow-black/90 flex flex-col justify-between group">
+          {/* Glossy top reflection overlay */}
+          <div className="absolute inset-0 bg-gradient-to-tr from-transparent via-white/5 to-white/10 pointer-events-none transition-transform duration-1000 group-hover:translate-x-12" />
+          
+          {/* Mock Browser Header */}
+          <div className="flex items-center justify-between border-b border-slate-200 dark:border-white/10 pb-4 mb-4">
+            <div className="flex items-center gap-1.5">
+              <div className="w-3 h-3 rounded-full bg-red-500/80" />
+              <div className="w-3 h-3 rounded-full bg-yellow-500/80" />
+              <div className="w-3 h-3 rounded-full bg-green-500/80" />
             </div>
-            <h3 className="text-lg sm:text-xl font-bold text-slate-900 dark:text-white">Coding Sandbox</h3>
-            <p className="mt-2 text-slate-600 dark:text-slate-400 text-xs sm:text-sm leading-relaxed">
-              Write actual code to solve DSA or MERN problems. Get detailed Time and Space Complexity profiles computed directly by Gemini AI.
-            </p>
+            <div className="text-[11px] text-slate-400 dark:text-white/40 tracking-wider">dashboard.interviewhub.com</div>
+            <div className="w-12" />
           </div>
 
-          <div className="p-6 glass-panel glass-panel-hover rounded-2xl text-left">
-            <div className="w-12 h-12 rounded-xl bg-purple-500/10 border border-purple-500/20 flex items-center justify-center mb-5 text-purple-600 dark:text-purple-400">
-              <Sparkles className="w-6 h-6" />
+          {/* Mock Dashboard Grid layout */}
+          <div className="grid grid-cols-3 gap-4 flex-grow text-left">
+            <div className="col-span-2 space-y-4">
+              <div className="h-24 bg-slate-100/50 dark:bg-white/5 rounded-xl border border-slate-200 dark:border-white/10 p-3.5 flex flex-col justify-between">
+                <span className="text-[10px] text-slate-500 dark:text-white/50 uppercase tracking-wider font-bold">Mock Score Trend</span>
+                <div className="h-8 flex items-end gap-1.5">
+                  <div className="w-full bg-slate-300 dark:bg-white/20 rounded-sm h-[30%]" />
+                  <div className="w-full bg-slate-400 dark:bg-white/40 rounded-sm h-[50%]" />
+                  <div className="w-full bg-slate-500 dark:bg-white/60 rounded-sm h-[80%]" />
+                  <div className="w-full bg-slate-800 dark:bg-white rounded-sm h-[95%]" />
+                </div>
+              </div>
+              <div className="grid grid-cols-2 gap-4">
+                <div className="h-18 bg-slate-100/50 dark:bg-white/5 rounded-xl border border-slate-200 dark:border-white/10 p-3 flex flex-col justify-between">
+                  <span className="text-[10px] text-slate-500 dark:text-white/50 uppercase">Proctoring Status</span>
+                  <span className="text-xs font-bold text-slate-800 dark:text-white tracking-wider">98.4% INTEGRITY</span>
+                </div>
+                <div className="h-18 bg-slate-100/50 dark:bg-white/5 rounded-xl border border-slate-200 dark:border-white/10 p-3 flex flex-col justify-between">
+                  <span className="text-[10px] text-slate-500 dark:text-white/50">Vocal Pace</span>
+                  <span className="text-xs font-bold text-slate-800 dark:text-white tracking-wider">125 WPM (Optimal)</span>
+                </div>
+              </div>
             </div>
-            <h3 className="text-lg sm:text-xl font-bold text-slate-900 dark:text-white">Cross-Questioning Rounds</h3>
-            <p className="mt-2 text-slate-600 dark:text-slate-400 text-xs sm:text-sm leading-relaxed">
-              The AI interviewer dynamically builds the next questions from your previous answer, mimicking hard round simulations.
-            </p>
+            <div className="bg-slate-100/50 dark:bg-white/5 rounded-xl border border-slate-200 dark:border-white/10 p-4 flex flex-col justify-between">
+              <div className="space-y-2">
+                <div className="h-2 w-12 bg-slate-400 dark:bg-white/40 rounded" />
+                <div className="h-2 w-full bg-slate-200 dark:bg-white/10 rounded" />
+                <div className="h-2 w-[80%] bg-slate-200 dark:bg-white/10 rounded" />
+              </div>
+              <div className="space-y-2">
+                <div className="text-[9px] font-bold text-slate-500 dark:text-white/40 uppercase">Gemini AI Integrator</div>
+                <div className="h-2 w-full bg-slate-200 dark:bg-white/10 rounded overflow-hidden">
+                  <div className="h-full bg-slate-800 dark:bg-white w-2/3" />
+                </div>
+              </div>
+            </div>
           </div>
 
-          <div className="p-6 glass-panel glass-panel-hover rounded-2xl text-left">
-            <div className="w-12 h-12 rounded-xl bg-pink-500/10 border border-pink-500/20 flex items-center justify-center mb-5 text-pink-500 dark:text-pink-400">
+          {/* Request Access Bar */}
+          <div className="mt-6 flex items-center justify-between bg-slate-100 dark:bg-white/5 border border-slate-200 dark:border-white/10 rounded-full p-1.5 max-w-md mx-auto w-full">
+            <span className="text-xs text-slate-600 dark:text-white/60 pl-4">Request Platform Access</span>
+            <button 
+              onClick={() => openAuth(false)}
+              className="px-5 py-2 bg-slate-900 dark:bg-white text-white dark:text-black hover:bg-slate-800 dark:hover:bg-slate-100 font-semibold text-xs rounded-full shadow-lg transition-all"
+            >
+              Get Started
+            </button>
+          </div>
+        </div>
+
+        {/* Features grid with gloss effect */}
+        <div className="mt-20 grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8 w-full">
+          {/* Card 1: Efficient Scheduling */}
+          <div className="relative p-6 bg-white dark:bg-black/60 border border-slate-200 dark:border-white/10 rounded-2xl text-left overflow-hidden group hover:border-slate-400 dark:hover:border-white/30 transition-all duration-500 shadow-lg hover:shadow-xl dark:shadow-black/50 transform hover:-translate-y-1">
+            {/* Glossy reflection effect */}
+            <div className="absolute inset-0 bg-gradient-to-tr from-transparent via-white/5 to-white/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" />
+            <div className="w-12 h-12 rounded-xl bg-slate-100 dark:bg-white/5 border border-slate-200 dark:border-white/10 flex items-center justify-center mb-5 text-slate-900 dark:text-white">
               <Award className="w-6 h-6" />
             </div>
-            <h3 className="text-lg sm:text-xl font-bold text-slate-900 dark:text-white">Real-time Soft Skills</h3>
+            <h3 className="text-lg sm:text-xl font-bold text-slate-900 dark:text-white">Efficient Scheduling</h3>
             <p className="mt-2 text-slate-600 dark:text-slate-400 text-xs sm:text-sm leading-relaxed">
-              Analyze speaking pace and track filler word counts ('um', 'like', 'you know') in speech to polish vocal communication.
+              Simulate realistic, company-specific mock interviews scheduled dynamically at your convenience.
+            </p>
+          </div>
+
+          {/* Card 2: Structured Interviews */}
+          <div className="relative p-6 bg-white dark:bg-black/60 border border-slate-200 dark:border-white/10 rounded-2xl text-left overflow-hidden group hover:border-slate-400 dark:hover:border-white/30 transition-all duration-500 shadow-lg hover:shadow-xl dark:shadow-black/50 transform hover:-translate-y-1">
+            <div className="absolute inset-0 bg-gradient-to-tr from-transparent via-white/5 to-white/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" />
+            <div className="w-12 h-12 rounded-xl bg-slate-100 dark:bg-white/5 border border-slate-200 dark:border-white/10 flex items-center justify-center mb-5 text-slate-900 dark:text-white">
+              <FileText className="w-6 h-6" />
+            </div>
+            <h3 className="text-lg sm:text-xl font-bold text-slate-900 dark:text-white">Structured Interviews</h3>
+            <p className="mt-2 text-slate-600 dark:text-slate-400 text-xs sm:text-sm leading-relaxed">
+              Dynamic cross-questioning rounds that adapt based on your responses, mimicking real technical interviewer loops.
+            </p>
+          </div>
+
+          {/* Card 3: AI Insights & Feedback */}
+          <div className="relative p-6 bg-white dark:bg-black/60 border border-slate-200 dark:border-white/10 rounded-2xl text-left overflow-hidden group hover:border-slate-400 dark:hover:border-white/30 transition-all duration-500 shadow-lg hover:shadow-xl dark:shadow-black/50 transform hover:-translate-y-1">
+            <div className="absolute inset-0 bg-gradient-to-tr from-transparent via-white/5 to-white/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" />
+            <div className="w-12 h-12 rounded-xl bg-slate-100 dark:bg-white/5 border border-slate-200 dark:border-white/10 flex items-center justify-center mb-5 text-slate-900 dark:text-white">
+              <Sparkles className="w-6 h-6" />
+            </div>
+            <h3 className="text-lg sm:text-xl font-bold text-slate-900 dark:text-white">AI Insights & Feedback</h3>
+            <p className="mt-2 text-slate-600 dark:text-slate-400 text-xs sm:text-sm leading-relaxed">
+              Get detailed speaking pace tracking, filler word detection counts, and automated visual performance score sheets.
             </p>
           </div>
         </div>
       </main>
 
       {/* Footer */}
-      <footer className="relative z-10 max-w-7xl mx-auto w-full px-6 py-8 border-t border-slate-200 dark:border-slate-900 text-center text-xs text-slate-500">
+      <footer className="relative z-10 max-w-7xl mx-auto w-full px-6 py-8 border-t border-slate-200 dark:border-white/10 text-center text-xs text-slate-500">
         &copy; {new Date().getFullYear()} InterviewHub - Designed for Placement Excellence. Built with MERN + Google Gemini.
       </footer>
 
       {/* Auth Modal */}
       {showAuthModal && (
         <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-950/50 dark:bg-slate-950/80 backdrop-blur-md">
-          <div className="relative w-full max-w-md bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800/80 rounded-3xl shadow-2xl p-6 sm:p-8 overflow-hidden max-h-[90vh] overflow-y-auto">
+          <div className="relative w-full max-w-md bg-white dark:bg-neutral-900 border border-slate-200 dark:border-white/15 rounded-3xl shadow-2xl p-6 sm:p-8 overflow-hidden max-h-[90vh] overflow-y-auto">
             <button
               onClick={() => setShowAuthModal(false)}
               className="absolute top-5 right-5 p-1.5 bg-slate-100 hover:bg-slate-200 dark:bg-slate-800 dark:hover:bg-slate-700 text-slate-500 dark:text-slate-200 rounded-full transition-colors"
@@ -284,7 +368,7 @@ const LandingPage = ({ onEnterDashboard }) => {
                     <button
                       type="submit"
                       disabled={loading}
-                      className="w-full py-3.5 bg-gradient-to-r from-indigo-600 to-purple-600 hover:from-indigo-500 hover:to-purple-500 active:scale-98 transition-all rounded-xl font-bold text-sm shadow-lg shadow-indigo-600/10 text-white mt-6 disabled:opacity-50"
+                      className="w-full py-3.5 bg-slate-900 dark:bg-white text-white dark:text-slate-950 hover:bg-slate-800 dark:hover:bg-slate-100 active:scale-98 transition-all rounded-full font-bold text-sm border border-slate-800 dark:border-white shadow-sm mt-6 disabled:opacity-50"
                     >
                       {loading ? 'Verifying...' : 'Next'}
                     </button>
@@ -297,7 +381,7 @@ const LandingPage = ({ onEnterDashboard }) => {
                           setErrorMsg('');
                           setSuccessMsg('');
                         }}
-                        className="text-indigo-600 dark:text-indigo-400 hover:underline font-semibold"
+                        className="text-slate-800 dark:text-white hover:underline font-semibold"
                       >
                         Back to Login
                       </button>
@@ -307,7 +391,7 @@ const LandingPage = ({ onEnterDashboard }) => {
                   <form onSubmit={handleResetPasswordSubmit} className="space-y-4">
                     <div>
                       <label className="block text-xs font-semibold text-slate-400 uppercase tracking-wider mb-2">Security Question</label>
-                      <div className="p-3.5 bg-slate-55 dark:bg-slate-950/80 border border-slate-200 dark:border-slate-800 rounded-xl text-sm font-medium text-slate-700 dark:text-slate-300">
+                      <div className="p-3.5 bg-slate-50 dark:bg-slate-950/80 border border-slate-200 dark:border-slate-800 rounded-xl text-sm font-medium text-slate-700 dark:text-slate-300">
                         {securityQuestionText}
                       </div>
                     </div>
@@ -339,7 +423,7 @@ const LandingPage = ({ onEnterDashboard }) => {
                     <button
                       type="submit"
                       disabled={loading}
-                      className="w-full py-3.5 bg-gradient-to-r from-indigo-600 to-purple-600 hover:from-indigo-500 hover:to-purple-500 active:scale-98 transition-all rounded-xl font-bold text-sm shadow-lg shadow-indigo-600/10 text-white mt-6 disabled:opacity-50"
+                      className="w-full py-3.5 bg-slate-900 dark:bg-white text-white dark:text-slate-950 hover:bg-slate-800 dark:hover:bg-slate-100 active:scale-98 transition-all rounded-full font-bold text-sm border border-slate-800 dark:border-white shadow-sm mt-6 disabled:opacity-50"
                     >
                       {loading ? 'Resetting Password...' : 'Reset Password'}
                     </button>
@@ -352,7 +436,7 @@ const LandingPage = ({ onEnterDashboard }) => {
                           setErrorMsg('');
                           setSuccessMsg('');
                         }}
-                        className="text-indigo-600 dark:text-indigo-400 hover:underline font-semibold"
+                        className="text-slate-800 dark:text-white hover:underline font-semibold"
                       >
                         Change Email Address
                       </button>
@@ -416,7 +500,7 @@ const LandingPage = ({ onEnterDashboard }) => {
                             setErrorMsg('');
                             setSuccessMsg('');
                           }}
-                          className="text-xs font-semibold text-indigo-600 dark:text-indigo-400 hover:underline"
+                          className="text-xs font-semibold text-slate-800 dark:text-white hover:underline"
                         >
                           Forgot Password?
                         </button>
@@ -469,7 +553,7 @@ const LandingPage = ({ onEnterDashboard }) => {
                   <button
                     type="submit"
                     disabled={loading}
-                    className="w-full py-3.5 bg-gradient-to-r from-indigo-600 to-purple-600 hover:from-indigo-500 hover:to-purple-500 active:scale-98 transition-all rounded-xl font-bold text-sm shadow-lg shadow-indigo-600/10 text-white mt-6 disabled:opacity-50"
+                    className="w-full py-3.5 bg-slate-900 dark:bg-white text-white dark:text-slate-950 hover:bg-slate-800 dark:hover:bg-slate-100 active:scale-98 transition-all rounded-full font-bold text-sm border border-slate-800 dark:border-white shadow-sm mt-6 disabled:opacity-50"
                   >
                     {loading ? 'Processing...' : isLogin ? 'Log In' : 'Sign Up'}
                   </button>
@@ -479,12 +563,12 @@ const LandingPage = ({ onEnterDashboard }) => {
                   {isLogin ? (
                     <span>
                       Don't have an account?{' '}
-                      <button onClick={() => { setIsLogin(false); setErrorMsg(''); }} className="text-indigo-600 dark:text-indigo-400 hover:underline font-medium">Sign Up</button>
+                      <button onClick={() => { setIsLogin(false); setErrorMsg(''); }} className="text-slate-800 dark:text-white hover:underline font-medium">Sign Up</button>
                     </span>
                   ) : (
                     <span>
                       Already have an account?{' '}
-                      <button onClick={() => { setIsLogin(true); setErrorMsg(''); }} className="text-indigo-600 dark:text-indigo-400 hover:underline font-medium">Log In</button>
+                      <button onClick={() => { setIsLogin(true); setErrorMsg(''); }} className="text-slate-800 dark:text-white hover:underline font-medium">Log In</button>
                     </span>
                   )}
                 </div>
